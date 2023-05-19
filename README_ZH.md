@@ -10,13 +10,13 @@
 
 <h3 align="center">Element Tiptap Editor</h3>
 
-A WYSIWYG rich-text editor using [tiptap](https://github.com/ueberdosis/tiptap) and [Element Plus](https://github.com/element-plus/element-plus) for Vue3
+一个 Vue3 的基于 [tiptap](https://github.com/ueberdosis/tiptap) 和 [Element Plus](https://github.com/element-plus/element-plus) 的 「所见即所得」 富文本编辑器
 
-that's easy to use, friendly to developers, fully extensible and clean in design.
+易上手，对开发者友好，可扩展性强，设计简洁
 
-## 📔 Languages
+## 📔 选择语言
 
-English | [简体中文](./README_ZH.md)
+[English](./README.md) | 简体中文
 
 ## 🎄 Demo
 
@@ -24,59 +24,57 @@ English | [简体中文](./README_ZH.md)
 
 👾[Code Sandbox](https://codesandbox.io/s/element-tiptap-bwlnj)
 
-## ✨ Features
+## ✨ 特色
 
-- 🎨Use [element-plus](https://github.com/element-plus/element-plus) components
-- 💅Many out of box [extensions](https://github.com/Leecason/element-tiptap#extensions) (welcome to submit an issue for feature request👏)
-- 🔖Markdown support
-- 📘TypeScript support
-- 🌐I18n support(`en`, `zh`, `pl`, `ru`, `de`, `ko`, `es`, `zh_tw`, `fr`, `pt_br`, `nl`, `he`). welcome to contribute more languages
-- 🎈Events you might use: `create`, `transaction`, `focus`, `blur`, `destroy`
-- 🍀Fully extensible, you can customize editor extension and its menu button view
-- 💻Also can control the behavior of the editor directly, customize the editor for yourself.
+- 🎨 使用 [element-plus](https://github.com/element-plus/element-plus) 组件
+- 💅 许多开箱即用的 [extension](https://github.com/Leecason/element-tiptap#extensions) (欢迎提交 issue 为新的 feature 留下建议 👏)
+- 🔖 支持 markdown 语法
+- 📘TypeScript 支持
+- 🌐 支持 i18n(`en`, `zh`, `pl`, `ru`, `de`, `ko`, `es`, `zh_tw`, `fr`, `pt_br`, `nl`, `he`). 欢迎贡献更多的语言
+- 🎈 可用的 `events`: `create`, `transaction`, `focus`, `blur`, `destroy`
+- 🍀 高度自定义, 你可以自定义 extension 和它对应的菜单按钮视图
+- 💻 也可以通过直接控制编辑器的行为来定制编辑器。
 
-## 📦 Installation
+## 📦 安装
 
-### NPM
+### 通过 NPM
 
 ```shell
 yarn add element-tiptap
 ```
 
-Or
+或者
 
 ```shell
 npm install --save element-tiptap
 ```
 
-#### Install plugin
+#### 安装插件
 
 ```js
 import { createApp } from 'vue';
 import App from './App.vue';
 import ElementPlus from 'element-plus';
 import ElementTiptapPlugin from 'element-tiptap';
-// import ElementTiptap's styles
+// import element-tiptap 样式
 import 'element-tiptap/lib/style.css';
 
-const app = createApp(App);
-
-// use ElementPlus's plugin
+// 安装 ElementUI 插件
 app.use(ElementPlus);
-// use this package's plugin
+// 安装 element-tiptap 插件
 app.use(ElementTiptapPlugin);
-// Now you register `'el-tiptap'` component globally.
+// 现在你已经在全局注册了 `el-tiptap` 组件。
 
 app.mount('#app');
 ```
 
-_Or_
+_或者_
 
-#### Partial import
+#### 局部引入
 
 ```vue
 <template>
-  <el-tiptap ...></el-tiptap>
+  <el-tiptap ...><el-tiptap>
 </template>
 
 <script setup>
@@ -84,7 +82,7 @@ import { ElementTiptap } from 'element-tiptap';
 </script>
 ```
 
-## 🚀 Usage
+## 🚀 用法
 
 ```vue
 <template>
@@ -94,7 +92,7 @@ import { ElementTiptap } from 'element-tiptap';
 <script setup>
 import { ref } from 'vue';
 import {
-  // necessary extensions
+  // 需要的 extensions
   Doc,
   Text,
   Paragraph,
@@ -107,22 +105,22 @@ import {
   OrderedList,
 } from 'element-tiptap';
 
-// editor extensions
-// they will be added to menubar and bubble menu by the order you declare.
+// 编辑器的 extensions
+// 它们将会按照你声明的顺序被添加到菜单栏和气泡菜单中
 const extensions = [
   Doc,
   Text,
   Paragraph,
   Heading.configure({ level: 5 }),
-  Bold.configure({ bubble: true }), // render command-button in bubble menu.
-  Underline.configure({ bubble: true, menubar: false }), // render command-button in bubble menu but not in menubar.
+  Bold.configure({ bubble: true }), // 在气泡菜单中渲染菜单按钮
+  Underline.configure({ bubble: true, menubar: false }), // 在气泡菜单而不在菜单栏中渲染菜单按钮
   Italic,
   Strike,
   BulletList,
   OrderedList,
 ];
 
-// editor's content
+// 编辑器的内容
 const content = ref(`
   <h1>Heading</h1>
   <p>This Editor is awesome!</p>
@@ -132,13 +130,13 @@ const content = ref(`
 
 ## 📔 Props
 
-### extensions
+### 扩展 extensions
 
-Type: `Array`
+类型: `Array`
 
-You can use the necessary extensions. The corresponding command-buttons will be added by declaring the order of the extension.
+你可以只使用需要的 extension，对应的菜单按钮将会按照你声明的顺序被添加。
 
-All available extensions:
+所有可用的 extensions:
 
 - `Doc`
 - `Text`
@@ -173,129 +171,137 @@ All available extensions:
 - `FontSize`
 - `CodeView`
 
-You can find all extensions docs [here](https://github.com/Leecason/element-tiptap/issues/107).
+[查看](https://github.com/Leecason/element-tiptap/issues/107)所有 extensions 的文档
 
-You can customize the extension. See [Custom extensions](https://tiptap.dev/guide/custom-extensions).
+你可以自定义 extension. 查看 [Custom extensions](https://tiptap.dev/guide/custom-extensions).
 
-### placeholder
+### 占位符 placeholder
 
-Type: `string`
+类型: `string`
 
-Default: `''`
+默认值: `''`
 
-When editor is empty, placeholder will display.
+当编辑器没有内容的时候，将会显示 placeholder。
 
 ```html
 <el-tiptap placeholder="Write something …" />
 ```
 
-### content
+### 内容 content
 
-Type: `string`
+类型: `string`
 
-Default: `''`
+默认值: `''`
 
-Editor's content
+编辑器的内容
 
 ```html
 <el-tiptap :content="content" @onUpdate="onEditorUpdate" />
 ```
 
-or Use `'v-model'`
+或者使用 `'v-model'`
 
 ```html
 <el-tiptap v-model:content="content" />
 ```
 
-### output
+### 输出 output
 
-Type: `string`
+类型: `string`
 
-Default: `'html'`
+默认值: `'html'`
 
-Output can be defined to `'html'` or `'json'`.
+可被定义为 `'html'`(默认) 或者 `'json'`.
 
 ```html
 <el-tiptap output="json" />
 ```
 
-further reading: [prosemirror data structure](https://prosemirror.net/docs/guide/#doc)
+进一步了解: [prosemirror 数据结构](https://prosemirror.net/docs/guide/#doc)
 
 ### readonly
 
-Type: `boolean`
+类型: `boolean`
 
-Default: `false`
+默认值: `false`
 
 ```html
 <el-tiptap readonly />
 ```
 
-when `readonly` is `true`, editor is not editable.
+当 `readonly` 为 `true`, 编辑器不可编辑。
 
 ### spellcheck
 
-Type: `boolean`
+类型: `boolean`
 
-Default: `false`
+默认值: 插件 `spellcheck` 配置项的值
 
 ```html
 <el-tiptap spellcheck> </el-tiptap>
 ```
 
-Whether the content is spellcheck enabled.
+编辑器内容是否开启拼写检查。
 
 ### width, height
 
-Type: `string | number`
+类型: `string | number`
 
-A string value with unit or a simple value (the default unit is **`px`**)：
+带单位的字符串值，无单位的值会将 **`px`** 作为单位:
 
 ```html
 <el-tiptap :width="700" height="100%"> </el-tiptap>
 ```
 
-The above example will be converted to:
+上例会被转换为:
 
 ```css
 width: 700px;
 height: 100%;
 ```
 
+### showMenubar
+
+类型: `boolean`
+
+默认值: `true`
+
+是否显示 menubar
+
 ### enableCharCount
 
-Type: `boolean`
+类型: `boolean`
 
-Default: `true`
+默认值: `true`
 
-Enables or disables the display of the character counter.
+是否显示字数统计
 
 ### tooltip
 
-Type: `boolean`
+类型: `boolean`
 
-Default: `true`
+默认值: `true`
 
-Control if tooltips are shown when getting with mouse over the buttons from the toolbar.
+鼠标移到按钮上时是否显示 tooltip
 
 ### locale
 
-Specifies the editor i18n language.
+指定编辑器国际化语言
 
 ```js
 <template>
-  <el-tiptap :locale="en"></el-tiptap>
+  <el-tiptap :locale="zh"></el-tiptap>
 </template>
 
 <script setup>
 import { ElementTiptap } from 'element-tiptap';
-import en from 'element-tiptap/lib/locales/en';
+import zh from 'element-tiptap/lib/locales/zh';
 </script>
 ```
 
-Available languages:
+可用的语言:
 
-- `en`(default)
+- `en`(默认)
 - `zh`
 - `pl` by @FurtakM
 - `ru` by @baitkul
@@ -308,9 +314,9 @@ Available languages:
 - `nl` by @Arne-Jan
 - `he` by @shovalPMS
 
-Welcome contribution.
+欢迎贡献更多的语言.
 
-## 👽 Events
+## 👽 事件 Events
 
 ### onCreate
 
@@ -321,8 +327,8 @@ Welcome contribution.
 
 <script setup>
 /**
- * the tiptap editor instance
- * see https://tiptap.dev/api/editor
+ * tiptap editor 实例
+ * 阅读 https://tiptap.scrumpy.io/docs/guide/editor.html
  */
 const onCreate = ({ editor }) => {
   // ...
@@ -332,23 +338,23 @@ const onCreate = ({ editor }) => {
 
 ### onTransaction, onFocus, onBlur, onDestroy
 
-The same as `onCreate`
+用法与 `init` 相同
 
-## 🏗 Contributing
+## 🏗 贡献代码
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+详细信息见 [CONTRIBUTING](CONTRIBUTING.md)
 
-## 📝 Changelog
+## 📝 更新日志
 
-[Changelog](https://github.com/Leecason/element-tiptap/blob/master/CHANGELOG.md)
+[更新日志](https://github.com/Leecason/element-tiptap/blob/master/CHANGELOG.md)
 
-## 📄 License
+## 📄 许可证
 
 [MIT](https://github.com/Leecason/element-tiptap/blob/master/LICENSE)
 
 ## 💝 Buy Me A Coffee
 
-I am so happy that so many people like this project, and I will do better with your support.
+看到这么多人喜欢这个项目我非常开心，有了你们的支持我会做的更好。
 
 <p>
   <img alt="reward" src="/public/wechat_reward_qrcode.jpg?raw=true" width="300">

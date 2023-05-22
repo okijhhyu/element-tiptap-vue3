@@ -41,13 +41,7 @@ English | [简体中文](./README_ZH.md)
 ### NPM
 
 ```shell
-yarn add element-tiptap
-```
-
-Or
-
-```shell
-npm install --save element-tiptap
+npm i element-tiptap-vue3-fixed
 ```
 
 #### Install plugin

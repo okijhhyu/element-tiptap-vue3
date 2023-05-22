@@ -14,6 +14,7 @@ A WYSIWYG rich-text editor using [tiptap](https://github.com/ueberdosis/tiptap) 
 
 that's easy to use, friendly to developers, fully extensible and clean in design.
 
+It' s version of alpha tiptap 2.0.1 with fixed bugs and repaire previous functionality. Also deleted most warns in console while using. Also content is reactive now.
 ## 📔 Languages
 
 English | [简体中文](./README_ZH.md)
@@ -95,9 +96,10 @@ import { ElementTiptap } from 'element-tiptap';
 import { ref } from 'vue';
 import {
   // necessary extensions
-  Doc,
+  Document,
   Text,
   Paragraph,
+  //________________________
   Heading,
   Bold,
   Underline,
@@ -140,7 +142,7 @@ You can use the necessary extensions. The corresponding command-buttons will be 
 
 All available extensions:
 
-- `Doc`
+- `Document`
 - `Text`
 - `Paragraph`
 - `Heading`
@@ -191,7 +193,13 @@ When editor is empty, placeholder will display.
 
 ### content
 
-Type: `string`
+Type: `object` for output json
+
+Default: `''`
+
+Editor's content
+
+Type: `string` for output html
 
 Default: `''`
 
@@ -284,7 +292,7 @@ Specifies the editor i18n language.
 
 ```js
 <template>
-  <el-tiptap :locale="en"></el-tiptap>
+  <el-tiptap :lang="en"></el-tiptap>
 </template>
 
 <script setup>
@@ -338,19 +346,7 @@ The same as `onCreate`
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-## 📝 Changelog
-
-[Changelog](https://github.com/Leecason/element-tiptap/blob/master/CHANGELOG.md)
 
 ## 📄 License
 
 [MIT](https://github.com/Leecason/element-tiptap/blob/master/LICENSE)
-
-## 💝 Buy Me A Coffee
-
-I am so happy that so many people like this project, and I will do better with your support.
-
-<p>
-  <img alt="reward" src="/public/wechat_reward_qrcode.jpg?raw=true" width="300">
-  <a href="https://www.buymeacoffee.com/leecason" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
-</p>

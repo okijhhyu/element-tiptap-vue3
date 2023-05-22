@@ -24,7 +24,7 @@ export default defineComponent({
   props: {
     editor: nodeViewProps['editor'],
     node: nodeViewProps['node'],
-    updateAttrs: nodeViewProps['updateAttributes'],
+    updateAttrs: nodeViewProps['updateAttributes']
   },
 });
 </script>

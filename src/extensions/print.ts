@@ -38,9 +38,9 @@ const Print = Extension.create({
     return {
       print:
         () =>
-        ({ view }) => {
-          return printEditorContent(view);
-        },
+          ({ view }) => {
+            return printEditorContent(view);
+          },
     };
   },
 

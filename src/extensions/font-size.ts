@@ -33,7 +33,7 @@ const FontSize = Extension.create<FontSizeOptions>({
     return {
       types: ['textStyle'],
       fontSizes: DEFAULT_FONT_SIZES,
-      button({ editor, t }: { editor: Editor; t: (...args: any[]) => string }) {
+      button({ editor }: { editor: Editor }) {
         return {
           component: FontSizeDropdown,
           componentProps: {
@@ -71,17 +71,17 @@ const FontSize = Extension.create<FontSizeOptions>({
     return {
       setFontSize:
         (fontSize) =>
-        ({ chain }) => {
-          return chain().setMark('textStyle', { fontSize }).run();
-        },
+          ({ chain }) => {
+            return chain().setMark('textStyle', { fontSize }).run();
+          },
       unsetFontSize:
         () =>
-        ({ chain }) => {
-          return chain()
-            .setMark('textStyle', { fontSize: DEFAULT_FONT_SIZE })
-            .removeEmptyTextStyle()
-            .run();
-        },
+          ({ chain }) => {
+            return chain()
+              .setMark('textStyle', { fontSize: DEFAULT_FONT_SIZE })
+              .removeEmptyTextStyle()
+              .run();
+          },
     };
   },
 

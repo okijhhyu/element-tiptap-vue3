@@ -15,7 +15,7 @@ const OrderedList = TiptapOrderedList.extend({
             command: () => {
               editor.commands.toggleOrderedList();
             },
-            isActive: editor.isActive('orderedList'),
+            isActive: editor.isActive('ordered_list'),
             icon: 'list-ol',
             tooltip: t('editor.extensions.OrderedList.tooltip'),
           },

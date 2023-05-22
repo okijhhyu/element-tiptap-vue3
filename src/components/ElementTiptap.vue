@@ -11,10 +11,12 @@
       editorClass,
     ]"
   >
-    <menu-bubble :editor="editor" :class="editorBubbleMenuClass" />
-
-    <menu-bar :editor="editor" :class="editorMenubarClass" />
-
+    <div>
+      <menu-bubble :editor="editor" :class="editorBubbleMenuClass" />
+    </div>
+    <div>
+      <menu-bar :editor="editor" :class="editorMenubarClass" />
+    </div>
     <div
       v-if="isCodeViewMode"
       :class="{
@@ -24,7 +26,6 @@
     >
       <textarea ref="cmTextAreaRef"></textarea>
     </div>
-
     <editor-content
       v-show="!isCodeViewMode"
       :editor="editor"
@@ -60,9 +61,9 @@ import {
   ref,
   unref,
   watchEffect,
+  watch
 } from 'vue';
 import { Editor, Extensions } from '@tiptap/core';
-// import { EditorContent } from '@/utils/tiptap-vue3';
 import { useEditor, EditorContent } from '@tiptap/vue-3';
 import TiptapPlaceholder from '@tiptap/extension-placeholder';
 import CharacterCount from '@tiptap/extension-character-count';
@@ -237,9 +238,19 @@ export default defineComponent({
             spellcheck: String(props.spellcheck),
           },
         },
+        editable: !props.readonly,
       });
     });
-
+    watchEffect(() => {
+      unref(editor)?.setOptions({
+        editorProps: {
+          attributes: {
+            spellcheck: String(props.spellcheck),
+          },
+        },
+        editable: !props.readonly,
+      });
+    });
     // i18n
     const i18nHandler = Trans.buildI18nHandler(props.lang);
     const t = (...args: any[]): string => {
@@ -264,7 +275,11 @@ export default defineComponent({
     const showFooter = computed(() => {
       return props.enableCharCount && !unref(isCodeViewMode);
     });
-
+    // Reactive prop conten
+    const myPropRef = ref(props.content);
+    watch(() => props.content, () => {
+      editor.value?.commands?.setContent(props.content)
+    });
     const editorStyle = useEditorStyle({
       width: props.width,
       height: props.height,

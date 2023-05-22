@@ -1,4 +1,3 @@
-import type { Editor } from '@tiptap/core';
 import { Extension } from '@tiptap/core';
 import FullscreenCommandButton from '@/components/MenuCommands/FullscreenCommandButton.vue';
 
@@ -8,7 +7,7 @@ const Fullscreen = Extension.create({
   addOptions() {
     return {
       ...this.parent?.(),
-      button({ editor }: { editor: Editor }) {
+      button() {
         return {
           component: FullscreenCommandButton,
         };

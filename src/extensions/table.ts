@@ -9,7 +9,7 @@ const Table = TiptapTable.extend({
   addOptions() {
     return {
       ...this.parent?.(),
-      button({ editor, t }: { editor: Editor; t: (...args: any[]) => string }) {
+      button({ editor }: { editor: Editor }) {
         return {
           component: TablePopover,
           componentProps: {

@@ -13,7 +13,7 @@ const Document = TiptapDocument.extend<DocumentOptions>({
   },
 
   content() {
-    return !!this.options.title ? 'title block+' : 'block+';
+    return this.options.title ? 'title block+' : 'block+';
   },
 
   addExtensions() {

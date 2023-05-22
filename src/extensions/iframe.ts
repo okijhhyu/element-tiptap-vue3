@@ -53,12 +53,12 @@ const Iframe = Node.create({
     return {
       setIframe:
         (options) =>
-        ({ commands }) => {
-          return commands.insertContent({
-            type: this.name,
-            attrs: options,
-          });
-        },
+          ({ commands }) => {
+            return commands.insertContent({
+              type: this.name,
+              attrs: options,
+            });
+          },
     };
   },
 

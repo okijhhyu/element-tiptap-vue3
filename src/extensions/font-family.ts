@@ -29,7 +29,7 @@ const FontFamily = Extension.create<FontFamilyOptions>({
     return {
       types: ['textStyle'],
       fontFamilyMap: DEFAULT_FONT_FAMILY_MAP,
-      button({ editor, t }: { editor: Editor; t: (...args: any[]) => string }) {
+      button({ editor }: { editor: Editor; }) {
         return {
           component: FontFamilyDropdown,
           componentProps: {
@@ -68,18 +68,18 @@ const FontFamily = Extension.create<FontFamilyOptions>({
     return {
       setFontFamily:
         (fontFamily) =>
-        ({ chain }) => {
-          return chain().setMark('textStyle', { fontFamily }).run();
-        },
+          ({ chain }) => {
+            return chain().setMark('textStyle', { fontFamily }).run();
+          },
 
       unsetFontFamily:
         () =>
-        ({ chain }) => {
-          return chain()
-            .setMark('textStyle', { fontFamily: null })
-            .removeEmptyTextStyle()
-            .run();
-        },
+          ({ chain }) => {
+            return chain()
+              .setMark('textStyle', { fontFamily: null })
+              .removeEmptyTextStyle()
+              .run();
+          },
     };
   },
 

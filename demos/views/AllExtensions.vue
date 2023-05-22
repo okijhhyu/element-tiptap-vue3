@@ -7,9 +7,8 @@
       output="html"
       :extensions="allExtensions"
       :content="content1"
-      @onUpdate="changeContent1($event)"
     />
-
+    {{ content1 }}
     <el-tiptap
       lang="ru"
       output="json"
@@ -24,21 +23,9 @@ export default defineComponent({
   data() {
     return {
       content1: '',
-      content2: '',
-      count: 0
+      content2: ''
     };
   },
-  methods: {
-    changeContent1(value) {
-      this.content1 = value;
-      this.count = this.count + 1;
-      if (this.count > 10) {
-        this.count = -10;
-        this.content1 = '';
-      }
-      console.log(this.content1, this.count);
-    }
-  }
 });
 </script>
 <script lang="ts" setup>

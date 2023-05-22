@@ -2,10 +2,10 @@
   <node-view-wrapper as="span" :class="imageViewClass">
     <div
       :class="{
-        'image-view__body--focused': selected,
-        'image-view__body--resizing': resizing,
+        'image-view__body--focused': selected && editor?.isEditable,
+        'image-view__body--resizing': resizing && editor?.isEditable,
+        'image-view__body': editor?.isEditable
       }"
-      class="image-view__body"
     >
       <img
         :src="src"
@@ -36,6 +36,7 @@
       use el-popover instead bubble menu -->
       <el-popover
         :visible="selected"
+        :disabled="!editor?.isEditable"
         :show-arrow="false"
         placement="top"
         popper-class="el-tiptap-image-popper"

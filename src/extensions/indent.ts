@@ -75,7 +75,7 @@ const Indent = Extension.create<IndentOptions>({
                 return {};
               }
 
-              return { ['data-indent']: attributes.indent };
+              return { 'data-indent': attributes.indent };
             },
           },
         },

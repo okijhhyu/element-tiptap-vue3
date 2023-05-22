@@ -1,16 +1,19 @@
 <template>
-  <command-button
-    :command="removeImage"
-    :enable-tooltip="enableTooltip"
-    :tooltip="t('editor.extensions.Image.buttons.remove_image.tooltip')"
-    icon="trash-alt"
-  />
+  <div>
+    <command-button
+      :command="removeImage"
+      :enable-tooltip="enableTooltip"
+      :tooltip="t('editor.extensions.Image.buttons.remove_image.tooltip')"
+      icon="trash-alt"
+    />
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, inject } from 'vue';
-import { Editor } from '@tiptap/vue-3';
 import CommandButton from '../CommandButton.vue';
+
+import { nodeViewProps } from '@tiptap/vue-3';
 
 export default defineComponent({
   name: 'RemoveImageCommandButton',
@@ -20,10 +23,7 @@ export default defineComponent({
   },
 
   props: {
-    editor: {
-      type: Editor,
-      required: true,
-    },
+    editor: nodeViewProps['editor'],
   },
 
   setup() {
@@ -35,8 +35,7 @@ export default defineComponent({
 
   methods: {
     removeImage() {
-      const a = this.editor?.commands.deleteNode('image');
-      console.log(a);
+      const a = this.editor?.commands.deleteSelection();
     },
   },
 });

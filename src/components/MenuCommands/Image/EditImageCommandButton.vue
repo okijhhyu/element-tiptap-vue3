@@ -12,7 +12,7 @@
       :title="t('editor.extensions.Image.control.edit_image.title')"
       :append-to-body="true"
       width="400px"
-      custom-class="el-tiptap-edit-image-dialog"
+      class="el-tiptap-edit-image-dialog"
       @open="syncImageAttrs"
     >
       <el-form :model="imageAttrs" label-position="top" size="small">

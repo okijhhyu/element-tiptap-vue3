@@ -107,9 +107,6 @@
   "bugs": {
     "url": "https://github.com/Leecason/element-tiptap/issues"
   },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
   "homepage": "https://github.com/Leecason/element-tiptapr#readme",
   "keywords": [
     "editor",
@@ -120,15 +117,10 @@
     "prosemirror",
     "element",
     "element-ui",
-    "element-plus"
+    "element-plus",
+    "element-tiptap"
   ],
   "license": "MIT",
-  "lint-staged": {
-    "*.{js,vue}": [
-      "yarn lint",
-      "git add"
-    ]
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Leecason/element-tiptap.git"

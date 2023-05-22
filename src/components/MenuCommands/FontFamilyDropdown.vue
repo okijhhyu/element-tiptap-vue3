@@ -1,5 +1,5 @@
 <template>
-  <el-dropdown placement="bottom" trigger="click" @command="toggleFontType">
+  <el-dropdown placement="bottom" trigger="click" @command="toggleFontType" popper-class="my-dropdown" :popper-options="{ modifiers: [{ name: 'computeStyles', options: { adaptive: false } }] }">
     <div>
       <command-button
         :enable-tooltip="enableTooltip"

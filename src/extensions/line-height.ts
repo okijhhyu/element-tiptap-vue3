@@ -74,11 +74,11 @@ const LineHeight = Extension.create<LineHeightOptions>({
 
       unsetLineHeight:
         () =>
-        ({ commands }) => {
-          return this.options.types.every((type) =>
-            commands.resetAttributes(type, 'lineHeight')
-          );
-        },
+          ({ commands }) => {
+            return this.options.types.every((type) =>
+              commands.resetAttributes(type, 'lineHeight')
+            );
+          },
     };
   },
 });

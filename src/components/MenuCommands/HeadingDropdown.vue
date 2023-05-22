@@ -4,13 +4,14 @@
     trigger="click"
     popper-class="el-tiptap-dropdown-popper"
     @command="toggleHeading"
+    :popper-options="{ modifiers: [{ name: 'computeStyles', options: { adaptive: false } }] }"
   >
     <div>
       <command-button
         :enable-tooltip="enableTooltip"
         :is-active="editor.isActive('heading')"
         :tooltip="t('editor.extensions.Heading.tooltip')"
-        :disabled="isCodeViewMode"
+        :readonly="isCodeViewMode"
         icon="heading"
       />
     </div>

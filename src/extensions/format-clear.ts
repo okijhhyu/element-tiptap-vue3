@@ -31,21 +31,21 @@ const FormatClear = Extension.create({
     return {
       formatClear:
         () =>
-        ({ editor }) => {
-          const chainedCommand: ChainedCommands = Object.entries(
-            commandsMap
-          ).reduce<ChainedCommands>((chain, [name, command]) => {
-            const extension = editor.extensionManager.extensions.find(
-              (e) => e.name === name
-            );
-            if (extension) {
-              return chain[command]();
-            }
-            return chain;
-          }, editor.chain());
+          ({ editor }) => {
+            const chainedCommand: ChainedCommands = Object.entries(
+              commandsMap
+            ).reduce<ChainedCommands>((chain, [name, command]) => {
+              const extension = editor.extensionManager.extensions.find(
+                (e) => e.name === name
+              );
+              if (extension) {
+                return chain[command]();
+              }
+              return chain;
+            }, editor.chain());
 
-          return chainedCommand.focus().run();
-        },
+            return chainedCommand.focus().run();
+          },
     };
   },
 

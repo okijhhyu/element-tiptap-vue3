@@ -17,7 +17,7 @@ that's easy to use, friendly to developers, fully extensible and clean in design
 It' s version of alpha tiptap 2.0.1 with fixed bugs and repaire previous functionality. Also deleted most warns in console while using. Also content is reactive now.
 ## 📔 Languages
 
-English | [简体中文](./README_ZH.md)
+English
 
 ## 🎄 Demo
 
@@ -106,7 +106,7 @@ import {
 // editor extensions
 // they will be added to menubar and bubble menu by the order you declare.
 const extensions = [
-  Doc,
+  Document,
   Text,
   Paragraph,
   Heading.configure({ level: 5 }),
@@ -190,8 +190,6 @@ When editor is empty, placeholder will display.
 Type: `object` for output json
 
 Default: `''`
-
-Editor's content
 
 Type: `string` for output html
 
@@ -343,4 +341,4 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## 📄 License
 
-[MIT](https://github.com/Leecason/element-tiptap/blob/master/LICENSE)
+[MIT](https://github.com/okijhhyu/element-tiptap-vue3/blob/dev/LICENSE)

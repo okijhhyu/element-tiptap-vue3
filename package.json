@@ -1,8 +1,8 @@
 {
-  "name": "element-tiptap",
-  "version": "2.0.0-alpha.1",
-  "description": "🌸A modern WYSIWYG rich-text editor using tiptap and Element UI for Vue.js",
-  "author": "leecason",
+  "name": "element-tiptap-vue3-fixed",
+  "version": "1.0.2",
+  "description": "🌸A modern WYSIWYG rich-text editor using tiptap and Element Plus for Vue3",
+  "author": "okijhhyu",
   "scripts": {
     "dev": "vite",
     "demo:preview": "vite preview",
@@ -12,8 +12,8 @@
     "lint:fix": "yarn lint --fix",
     "semantic-release": "semantic-release"
   },
-  "main": "./lib/element-tiptap.umd.js",
-  "module": "./lib/element-tiptap.es.js",
+  "main": "./lib/element-tiptap-vue3-fixed.umd.js",
+  "module": "./lib/element-tiptap-vue3-fixed.es.js",
   "files": [
     "lib/*"
   ],
@@ -104,24 +104,27 @@
   },
   "resolutions": {},
   "bugs": {
-    "url": "https://github.com/Leecason/element-tiptap/issues"
+    "url": "https://github.com/okijhhyu/element-tiptap-vue3/issues"
   },
-  "homepage": "https://github.com/Leecason/element-tiptapr#readme",
+  "homepage": "https://github.com/okijhhyu/element-tiptap-vue3",
   "keywords": [
     "editor",
     "wysiwyg",
     "vue3",
     "vue",
+    "vuejs",
     "tiptap",
     "prosemirror",
     "element",
     "element-ui",
     "element-plus",
-    "element-tiptap"
+    "element-tiptap",
+    "element-tiptap-vue3",
+    "element-tiptap vue3"
   ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Leecason/element-tiptap.git"
+    "url": "git+https://github.com/okijhhyu/element-tiptap-vue3.git"
   }
 }

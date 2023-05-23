@@ -50,9 +50,9 @@ npm i element-tiptap-vue3-fixed
 import { createApp } from 'vue';
 import App from './App.vue';
 import ElementPlus from 'element-plus';
-import ElementTiptapPlugin from 'element-tiptap';
+import ElementTiptapPlugin from 'element-tiptap-vue3-fixed';
 // import ElementTiptap's styles
-import 'element-tiptap/lib/style.css';
+import 'element-tiptap-vue3-fixed/lib/style.css';
 
 const app = createApp(App);
 
@@ -75,7 +75,7 @@ _Or_
 </template>
 
 <script setup>
-import { ElementTiptap } from 'element-tiptap';
+import { ElementTiptap } from 'element-tiptap-vue3-fixed';
 </script>
 ```
 
@@ -101,7 +101,7 @@ import {
   Strike,
   BulletList,
   OrderedList,
-} from 'element-tiptap';
+} from 'element-tiptap-vue3-fixed';
 
 // editor extensions
 // they will be added to menubar and bubble menu by the order you declare.
@@ -288,8 +288,8 @@ Specifies the editor i18n language.
 </template>
 
 <script setup>
-import { ElementTiptap } from 'element-tiptap';
-import en from 'element-tiptap/lib/locales/en';
+import { ElementTiptap } from 'element-tiptap-vue3-fixed';
+import en from 'element-tiptap-vue3-fixed/lib/locales/en';
 </script>
 ```
 

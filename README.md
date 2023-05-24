@@ -90,7 +90,7 @@ import { ElementTiptap } from 'element-tiptap-vue3-fixed';
 import { ref } from 'vue';
 import {
   // necessary extensions
-  Document,
+  Doc,
   Text,
   Paragraph,
   //________________________
@@ -106,7 +106,7 @@ import {
 // editor extensions
 // they will be added to menubar and bubble menu by the order you declare.
 const extensions = [
-  Document,
+  Doc,
   Text,
   Paragraph,
   Heading.configure({ level: 5 }),
@@ -136,7 +136,7 @@ You can use the necessary extensions. The corresponding command-buttons will be 
 
 All available extensions:
 
-- `Document`
+- `Doc`
 - `Text`
 - `Paragraph`
 - `Heading`

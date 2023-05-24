@@ -75,7 +75,7 @@ import MenuBubble from './MenuBubble/index.vue';
 
 interface Props {
   extensions: Extensions;
-  content?: string;
+  content?: string | { content: any, type: string };
   placeholder?: string;
   lang?: string;
   width?: string | number;
@@ -105,11 +105,11 @@ export default defineComponent({
 
   props: {
     content: {
-      type: String,
+      validator: prop => typeof prop === 'object' || typeof prop === 'string',
       default: '',
     },
     extensions: {
-      type: Array,
+      type: Array as () => Extensions,
       default: [],
     },
     placeholder: {
@@ -184,7 +184,7 @@ export default defineComponent({
           emptyEditorClass: 'el-tiptap-editor--empty',
           emptyNodeClass: 'el-tiptap-editor__placeholder',
           showOnlyCurrent: false,
-          placeholder: ({ node }) => {
+          placeholder: () => {
             return props.placeholder;
           },
         }),
@@ -241,16 +241,6 @@ export default defineComponent({
         editable: !props.readonly,
       });
     });
-    watchEffect(() => {
-      unref(editor)?.setOptions({
-        editorProps: {
-          attributes: {
-            spellcheck: String(props.spellcheck),
-          },
-        },
-        editable: !props.readonly,
-      });
-    });
     // i18n
     const i18nHandler = Trans.buildI18nHandler(props.lang);
     const t = (...args: any[]): string => {
@@ -276,9 +266,8 @@ export default defineComponent({
       return props.enableCharCount && !unref(isCodeViewMode);
     });
     // Reactive prop conten
-    const myPropRef = ref(props.content);
     watch(() => props.content, () => {
-      editor.value?.commands?.setContent(props.content)
+      editor.value.commands.setContent(props.content);
     });
     const editorStyle = useEditorStyle({
       width: props.width,

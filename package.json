@@ -1,6 +1,6 @@
 {
   "name": "element-tiptap-vue3-fixed",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "🌸A modern WYSIWYG rich-text editor using tiptap and Element Plus for Vue3",
   "author": "okijhhyu",
   "scripts": {

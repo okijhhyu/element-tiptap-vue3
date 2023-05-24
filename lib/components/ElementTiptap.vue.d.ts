@@ -1,10 +1,11 @@
+import { Extensions } from '@tiptap/core';
 declare const _sfc_main: import("vue").DefineComponent<{
     content: {
-        type: StringConstructor;
+        validator: (prop: unknown) => boolean;
         default: string;
     };
     extensions: {
-        type: ArrayConstructor;
+        type: () => Extensions;
         default: never[];
     };
     placeholder: {
@@ -82,11 +83,11 @@ declare const _sfc_main: import("vue").DefineComponent<{
     }[];
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     content: {
-        type: StringConstructor;
+        validator: (prop: unknown) => boolean;
         default: string;
     };
     extensions: {
-        type: ArrayConstructor;
+        type: () => Extensions;
         default: never[];
     };
     placeholder: {
@@ -152,7 +153,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
     };
 }>>, {
     content: string;
-    extensions: unknown[];
+    extensions: Extensions;
     tooltip: boolean;
     readonly: boolean;
     width: string | number;

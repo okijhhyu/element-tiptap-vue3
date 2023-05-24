@@ -4,7 +4,6 @@ import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 import TaskItem from './task-item';
 
 const TaskList = TiptapTaskList.extend({
-  name: 'task_list',
   addOptions() {
     return {
       ...this.parent?.(),
@@ -15,7 +14,7 @@ const TaskList = TiptapTaskList.extend({
             command: () => {
               editor.commands.toggleTaskList();
             },
-            isActive: editor.isActive('task_list'),
+            isActive: editor.isActive('taskList'),
             icon: 'tasks',
             tooltip: t('editor.extensions.TodoList.tooltip'),
           },

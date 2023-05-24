@@ -1,5 +1,5 @@
 export { default as Text } from '@tiptap/extension-text';
-export { default as Document } from './document';
+export { default as Doc } from './document';
 export { default as Paragraph } from '@tiptap/extension-paragraph';
 export { default as Heading } from './heading';
 export { default as Blockquote } from './blockquote';

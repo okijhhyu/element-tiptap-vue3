@@ -4,7 +4,6 @@ import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 import ListItem from './list-item';
 
 const OrderedList = TiptapOrderedList.extend({
-  name: 'ordered_list',
   addOptions() {
     return {
       ...this.parent?.(),
@@ -15,7 +14,7 @@ const OrderedList = TiptapOrderedList.extend({
             command: () => {
               editor.commands.toggleOrderedList();
             },
-            isActive: editor.isActive('ordered_list'),
+            isActive: editor.isActive('orderedList'),
             icon: 'list-ol',
             tooltip: t('editor.extensions.OrderedList.tooltip'),
           },
@@ -25,7 +24,7 @@ const OrderedList = TiptapOrderedList.extend({
   },
 
   addExtensions() {
-    return [ListItem.extend({ name: 'list_item' })];
+    return [ListItem];
   },
 });
 

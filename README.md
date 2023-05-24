@@ -21,14 +21,12 @@ English
 
 ## 🎄 Demo
 
-👉[https://leecason.github.io/element-tiptap](https://leecason.github.io/element-tiptap)
-
-👾[Code Sandbox](https://codesandbox.io/s/element-tiptap-bwlnj)
+👾[Code Sandbox](https://codesandbox.io/s/element-tiptapt-vue3-element-plus-7xw4pf?file=/src/)
 
 ## ✨ Features
 
 - 🎨Use [element-plus](https://github.com/element-plus/element-plus) components
-- 💅Many out of box [extensions](https://github.com/Leecason/element-tiptap#extensions) (welcome to submit an issue for feature request👏)
+- 💅Many out of box [extensions](https://github.com/okijhhyu/element-tiptap-vue3#extensions) (welcome to submit an issue for feature request👏)
 - 🔖Markdown support
 - 📘TypeScript support
 - 🌐I18n support(`en`, `zh`, `pl`, `ru`, `de`, `ko`, `es`, `zh_tw`, `fr`, `pt_br`, `nl`, `he`). welcome to contribute more languages
@@ -169,9 +167,9 @@ All available extensions:
 - `FontSize`
 - `CodeView`
 
-You can find all extensions docs [here](https://github.com/Leecason/element-tiptap/issues/107).
+You can find all extensions docs [here](https://github.com/Leecason/element-tiptap/issues/107). TODO Correct documentation
 
-You can customize the extension. See [Custom extensions](https://tiptap.dev/guide/custom-extensions).
+You can customize the extension. See [Custom extensions](https://tiptap.dev/guide/custom-extensions). TODO Correct documentation
 
 ### placeholder
 

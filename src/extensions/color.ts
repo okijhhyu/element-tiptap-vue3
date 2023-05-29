@@ -5,6 +5,7 @@ import ColorPopover from '@/components/MenuCommands/ColorPopover.vue';
 import TextStyle from '@tiptap/extension-text-style';
 
 const Color = TiptapColor.extend({
+  nessesaryExtensions: [TextStyle],
   addOptions() {
     return {
       ...this.parent?.(),
@@ -18,10 +19,6 @@ const Color = TiptapColor.extend({
         };
       },
     };
-  },
-
-  addExtensions() {
-    return [TextStyle];
   },
 });
 

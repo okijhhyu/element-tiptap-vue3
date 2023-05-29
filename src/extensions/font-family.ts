@@ -82,10 +82,7 @@ const FontFamily = Extension.create<FontFamilyOptions>({
           },
     };
   },
-
-  addExtensions() {
-    return [TextStyle];
-  },
+  nessesaryExtensions: [TextStyle],
 });
 
 export default FontFamily;

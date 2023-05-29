@@ -84,10 +84,7 @@ const FontSize = Extension.create<FontSizeOptions>({
           },
     };
   },
-
-  addExtensions() {
-    return [TextStyle];
-  },
+  nessesaryExtensions: [TextStyle],
 });
 
 export default FontSize;

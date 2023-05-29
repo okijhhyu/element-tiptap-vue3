@@ -30,7 +30,7 @@ export default defineComponent({
 </script>
 <script lang="ts" setup>
 import {
-  Document,
+  Doc,
   Text,
   Paragraph,
   // text extensions
@@ -65,7 +65,7 @@ import {
   SelectAll,
   History,
   CodeView,
-} from 'element-tiptap';
+} from 'element-tiptap-vue3-fixed';
 
 import codemirror from 'codemirror';
 import 'codemirror/lib/codemirror.css'; // import base style
@@ -75,7 +75,7 @@ import 'codemirror/addon/edit/closetag.js';
 // autoCloseTags
 
 const textExtensions = [
-  Document,
+  Doc,
   Text,
   Paragraph,
   Bold,
@@ -92,7 +92,7 @@ const textExtensions = [
 ];
 
 const paragraphExtensions = [
-  Document,
+  Doc,
   Text,
   Paragraph,
   Heading.configure({ level: 5 }),
@@ -108,7 +108,7 @@ const paragraphExtensions = [
 ];
 
 const richAndToolsExtensions = [
-  Document,
+  Doc,
   Text,
   Paragraph,
   Link,
@@ -129,7 +129,7 @@ const richAndToolsExtensions = [
   History,
 ];
 const allExtensions = [
-  Document,
+  Doc,
   Text,
   Paragraph,
   Bold,

@@ -4,6 +4,7 @@ import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 import ListItem from './list-item';
 
 const BulletList = TiptapBulletList.extend({
+  nessesaryExtensions: [ListItem],
   addOptions() {
     return {
       ...this.parent?.(),
@@ -21,10 +22,6 @@ const BulletList = TiptapBulletList.extend({
         };
       },
     };
-  },
-
-  addExtensions() {
-    return [ListItem];
   },
 });
 

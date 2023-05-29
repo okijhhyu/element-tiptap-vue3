@@ -69,7 +69,6 @@ import TiptapPlaceholder from '@tiptap/extension-placeholder';
 import CharacterCount from '@tiptap/extension-character-count';
 import { Trans } from '@/i18n';
 import { useCodeView, useCharacterCount, useEditorStyle } from '@/hooks';
-
 import MenuBar from './MenuBar/index.vue';
 import MenuBubble from './MenuBubble/index.vue';
 
@@ -208,10 +207,27 @@ export default defineComponent({
 
       emit('onUpdate', output, editor);
     };
+    let additionalExtensions: any[] = [];
+    extensions.map(extension => {
+      if (extension.config.nessesaryExtensions) {
+        additionalExtensions = [...additionalExtensions, ...extension.config.nessesaryExtensions];
+      }
+    });
+    const uniqueObjects = [];
+    const seenValues = {} as {[key: string]: boolean};
+    // remove duplicate extensions
+    for (let i = 0; i < additionalExtensions.length; i++) {
+      const obj = additionalExtensions[i];
+      const value = obj.name;
 
+      if (!seenValues[value]) {
+        seenValues[value] = true;
+        uniqueObjects.push(obj);
+      }
+    }
     const editor = useEditor({
       content: props.content,
-      extensions,
+      extensions: [...extensions, ...uniqueObjects],
       editable: !props.readonly,
       onCreate: (options) => {
         emit('onCreate', options);

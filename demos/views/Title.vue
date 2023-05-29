@@ -6,7 +6,7 @@
 
 <script setup>
 import {
-  Document,
+  Doc,
   Text,
   Paragraph,
   Heading,
@@ -20,10 +20,10 @@ import {
   TextAlign,
   Indent,
   History,
-} from 'element-tiptap';
+} from 'element-tiptap-vue3-fixed';
 
 const extensions = [
-  Document.configure({ title: true }),
+  Doc.configure({ title: true }),
   Text,
   Paragraph,
   Heading.configure({ level: 3 }),
@@ -39,4 +39,5 @@ const extensions = [
   History,
 ];
 const content = '<h1>Title Line</h1><p>The body content</p>';
+
 </script>

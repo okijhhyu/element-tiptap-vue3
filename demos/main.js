@@ -8,7 +8,7 @@ import {
   ElButton,
 } from 'element-plus';
 
-import ElementTiptap from 'element-tiptap';
+import ElementTiptap from 'element-tiptap-vue3-fixed';
 import App from './App.vue';
 import router from './router';
 

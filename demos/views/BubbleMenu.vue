@@ -6,7 +6,7 @@
 
 <script setup>
 import {
-  Document,
+  Doc,
   Text,
   Paragraph,
   Heading,
@@ -28,10 +28,10 @@ import {
   HorizontalRule,
   FormatClear,
   History,
-} from 'element-tiptap';
+} from 'element-tiptap-vue3-fixed';
 
 const extensions = [
-  Document,
+  Doc,
   Text,
   Paragraph,
   Heading.configure({ level: 5 }),

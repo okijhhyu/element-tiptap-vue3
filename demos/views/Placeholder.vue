@@ -9,7 +9,7 @@
 
 <script setup>
 import {
-  Document,
+  Doc,
   Text,
   Paragraph,
   Bold,
@@ -19,10 +19,10 @@ import {
   BulletList,
   OrderedList,
   History,
-} from 'element-tiptap';
+} from 'element-tiptap-vue3-fixed';
 
 const extensions = [
-  Document,
+  Doc,
   Text,
   Paragraph,
   Bold,

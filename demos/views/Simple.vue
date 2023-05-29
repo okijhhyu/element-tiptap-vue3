@@ -11,7 +11,7 @@
 <script setup>
 import { ref } from 'vue';
 import {
-  Document,
+  Doc,
   Text,
   Paragraph,
   Heading,
@@ -33,7 +33,7 @@ import {
   CodeView,
   Fullscreen,
   History,
-} from 'element-tiptap';
+} from 'element-tiptap-vue3-fixed';
 
 import codemirror from 'codemirror';
 import 'codemirror/lib/codemirror.css'; // import base style
@@ -42,7 +42,7 @@ import 'codemirror/addon/selection/active-line.js'; // require active-line.js
 import 'codemirror/addon/edit/closetag.js'; // autoCloseTags
 
 const extensions = [
-  Document,
+  Doc,
   Text,
   Paragraph,
   Heading.configure({ level: 5 }),

@@ -9,16 +9,20 @@ const TaskItem = TiptapTaskItem.extend({
       ...this.parent?.(),
       done: {
         default: false,
+        keepOnSplit: false,
         parseHTML: (element) => element.getAttribute('data-done') === 'true',
+        renderHTML: attributes => ({
+          'data-done': attributes.done,
+        }),
       },
     };
   },
 
-  renderHTML({ node, HTMLAttributes }) {
-    const { done } = node.attrs;
+  renderHTML(element) {
+    const { done } = element.node.attrs;
     return [
       'li',
-      mergeAttributes(this.options.HTMLAttributes, HTMLAttributes, {
+      mergeAttributes(this.options.HTMLAttributes, element.HTMLAttributes, {
         'data-type': this.name,
       }),
       // el-checkbox dom

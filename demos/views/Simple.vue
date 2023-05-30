@@ -3,6 +3,7 @@
     <el-tiptap
       :extensions="extensions"
       v-model:content="content"
+      output="html"
       placeholder="Write something ..."
     />
   </div>
@@ -55,8 +56,8 @@ const extensions = [
   Image,
   Blockquote,
   TextAlign,
-  BulletList.configure({ bubble: true }),
-  OrderedList.configure({ bubble: true }),
+  BulletList,
+  OrderedList,
   TaskList,
   Indent,
   HardBreak,

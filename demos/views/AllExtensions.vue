@@ -6,14 +6,14 @@
       lang="ru"
       output="html"
       :extensions="allExtensions"
-      :content="content1"
+      v-model:content="content1"
     />
     {{ content1 }}
     <el-tiptap
       lang="ru"
       output="json"
       :extensions="allExtensions"
-      :content="content2"
+      v-model:content="content1"
     />
   </div>
 </template>

@@ -10,7 +10,6 @@
     </div>
     <template #dropdown>
       <el-dropdown-menu class="el-tiptap-dropdown-menu">
-        <!-- default size -->
         <el-dropdown-item
           :command="defaultSize"
           :class="{

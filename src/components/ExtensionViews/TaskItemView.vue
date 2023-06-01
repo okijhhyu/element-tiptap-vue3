@@ -31,7 +31,6 @@ export default defineComponent({
   props: nodeViewProps,
   watch: {
     'node.attrs.done'(value) {
-      console.log(value);
       this.done = value;
     }
   },

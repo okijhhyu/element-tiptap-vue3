@@ -138,21 +138,21 @@ const allExtensions = [
   Strike.configure({ bubble: true }),
   Code.configure({ bubble: true }), // TODO
   FontFamily.configure({ bubble: true }),
-  FontSize, // TODO
+  FontSize.configure({ bubble: true }),
   Color.configure({ bubble: true }),
   Highlight.configure({ bubble: true }),
   FormatClear.configure({ bubble: true }), // TODO
   History, // TODO
   Heading.configure({ level: 5, bubble: true }),
   BulletList.configure({ bubble: true }),
-  OrderedList, // TODO
+  OrderedList.configure({ bubble: true }),
   TaskList.configure({ bubble: true }),
-  TextAlign.configure({ bubble: true }),
-  LineHeight.configure({ bubble: true }),
+  // TextAlign.configure({ bubble: true }),
+  // LineHeight.configure({ bubble: true }),
   Indent.configure({ bubble: true }),
   Blockquote.configure({ bubble: true }),
   CodeBlock.configure({ bubble: true }),
-  Link.configure({ bubble: true }),
+  Link.configure({ bubble: true }), // TODO
   Image.configure({ bubble: true }),
   Iframe.configure({ bubble: true }),
   Table.configure({ resizable: true }),

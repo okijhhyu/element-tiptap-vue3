@@ -209,8 +209,8 @@ export default defineComponent({
     };
     let additionalExtensions: any[] = [];
     extensions.map(extension => {
-      if (extension?.parent?.config?.nessesaryExtensions) {
-        additionalExtensions = [...additionalExtensions, ...extension.parent.config.nessesaryExtensions];
+      if (extension?.parent?.config?.nessesaryExtensions || extension?.config?.nessesaryExtensions) {
+        additionalExtensions = [...additionalExtensions, ...(extension?.parent?.config?.nessesaryExtensions || extension?.config?.nessesaryExtensions)];
       }
     });
     const uniqueObjects = [];

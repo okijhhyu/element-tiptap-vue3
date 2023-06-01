@@ -31,12 +31,11 @@ declare const _sfc_main: import("vue").DefineComponent<{
         type: import("vue").PropType<() => void>;
         required: true;
     };
-}, unknown, unknown, {
-    done: {
-        get(): boolean;
-        set(done: boolean): void;
-    };
-}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, unknown, {
+    done: any;
+}, {}, {
+    changeCheck(event: any): void;
+}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     editor: {
         type: import("vue").PropType<import("@tiptap/core").Editor>;
         required: true;

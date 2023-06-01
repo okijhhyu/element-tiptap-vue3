@@ -141,14 +141,14 @@ const allExtensions = [
   FontSize.configure({ bubble: true }),
   Color.configure({ bubble: true }),
   Highlight.configure({ bubble: true }),
-  FormatClear.configure({ bubble: true }), // TODO
+  FormatClear.configure({ bubble: true }),
   History, // TODO
   Heading.configure({ level: 5, bubble: true }),
   BulletList.configure({ bubble: true }),
   OrderedList.configure({ bubble: true }),
   TaskList.configure({ bubble: true }),
-  // TextAlign.configure({ bubble: true }),
-  // LineHeight.configure({ bubble: true }),
+  TextAlign.configure({ bubble: true }),
+  LineHeight.configure({ bubble: true }),
   Indent.configure({ bubble: true }),
   Blockquote.configure({ bubble: true }),
   CodeBlock.configure({ bubble: true }),

@@ -33,14 +33,12 @@ export default defineComponent({
 
     return { t, enableTooltip, isCodeViewMode };
   },
-
   methods: {
     generateCommandButtonComponentSpecs() {
       const extensionManager = this.editor.extensionManager;
       return extensionManager.extensions.reduce((acc, extension) => {
         const { button } = extension.options;
         if (!button || typeof button !== 'function') return acc;
-
         const menuBtnComponentSpec = button({
           editor: this.editor,
           t: this.t,

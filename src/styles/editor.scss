@@ -100,8 +100,12 @@
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
     visibility: hidden;
-    z-index: 50;
-
+    z-index: 30;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 340px;
+    height: 55px;
+    overflow-y: auto;
     &--active {
       opacity: 1;
       visibility: visible;
@@ -537,4 +541,7 @@
   &__characters {
     color: lighten($regular-text-color, 20%);
   }
+}
+.tooltip-up {
+  z-index: 10000 !important;
 }

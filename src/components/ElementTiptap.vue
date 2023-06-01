@@ -209,8 +209,8 @@ export default defineComponent({
     };
     let additionalExtensions: any[] = [];
     extensions.map(extension => {
-      if (extension.config.nessesaryExtensions) {
-        additionalExtensions = [...additionalExtensions, ...extension.config.nessesaryExtensions];
+      if (extension?.parent?.config?.nessesaryExtensions) {
+        additionalExtensions = [...additionalExtensions, ...extension.parent.config.nessesaryExtensions];
       }
     });
     const uniqueObjects = [];
@@ -257,6 +257,7 @@ export default defineComponent({
         editable: !props.readonly,
       });
     });
+    
     // i18n
     const i18nHandler = Trans.buildI18nHandler(props.lang);
     const t = (...args: any[]): string => {

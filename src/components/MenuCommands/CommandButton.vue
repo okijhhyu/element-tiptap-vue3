@@ -4,7 +4,9 @@
     :show-after="350"
     :disabled="!enableTooltip || readonly"
     effect="dark"
+    popper-class="tooltip-up"
     placement="top"
+    :enterable="false"
   >
     <div :class="commandButtonClass" @mousedown.prevent @click="onClick">
       <v-icon :name="icon" />

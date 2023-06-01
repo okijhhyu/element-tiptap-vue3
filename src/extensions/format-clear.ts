@@ -35,7 +35,6 @@ const FormatClear = Extension.create({
           component: CommandButton,
           componentProps: {
             command: () => {
-              console.log(editor);
               editor.commands.formatClear();
             },
             icon: 'clear-format',

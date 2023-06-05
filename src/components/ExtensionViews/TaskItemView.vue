@@ -30,14 +30,20 @@ export default defineComponent({
 
   props: nodeViewProps,
   watch: {
-    'node.attrs.done'(value) {
-      this.done = value;
+    'node.attrs.done': {
+      handler(value) {
+        this.done = value;
+      },
+      deep: false
     }
   },
   data() {
     return {
-      done: this.node?.attrs.done
+      done: false
     };
+  },
+  mounted() {
+    this.done = this.node?.attrs.done;
   },
   methods: {
     changeCheck(event: any) : void {

@@ -6,7 +6,7 @@
       data-drag-handle
     >
       <span contenteditable="false">
-        <el-checkbox :model-value="done" @change="changeCheck" />
+        <el-checkbox v-model="done" />
       </span>
 
       <node-view-content class="todo-content" />
@@ -29,27 +29,16 @@ export default defineComponent({
   },
 
   props: nodeViewProps,
-  watch: {
-    'node.attrs.done': {
-      handler(value) {
-        this.done = value;
+  computed: {
+    done: {
+      get(): boolean {
+        return this.node?.attrs.done;
       },
-      deep: false
-    }
-  },
-  data() {
-    return {
-      done: false
-    };
-  },
-  mounted() {
-    this.done = this.node?.attrs.done;
-  },
-  methods: {
-    changeCheck(event: any) : void {
-      this.updateAttributes({
-        done: event
-      });
+      set(done: boolean) {
+        this.updateAttributes?.({
+          done,
+        });
+      },
     },
   },
 });

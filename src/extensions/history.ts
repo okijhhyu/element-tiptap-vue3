@@ -14,7 +14,7 @@ const History = TiptapHistory.extend({
               command: () => {
                 editor.commands.undo();
               },
-
+              disabled: !editor.can().chain().focus().undo().run(),
               icon: 'undo',
               tooltip: t('editor.extensions.History.tooltip.undo'),
             },
@@ -25,7 +25,7 @@ const History = TiptapHistory.extend({
               command: () => {
                 editor.commands.redo();
               },
-
+              disabled: !editor.can().chain().focus().redo().run(),
               icon: 'redo',
               tooltip: t('editor.extensions.History.tooltip.redo'),
             },

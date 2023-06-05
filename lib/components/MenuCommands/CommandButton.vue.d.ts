@@ -4,6 +4,10 @@ declare const _sfc_main: import("vue").DefineComponent<{
         type: StringConstructor;
         required: true;
     };
+    disabled: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
     isActive: {
         type: BooleanConstructor;
         default: boolean;
@@ -33,6 +37,10 @@ declare const _sfc_main: import("vue").DefineComponent<{
         type: StringConstructor;
         required: true;
     };
+    disabled: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
     isActive: {
         type: BooleanConstructor;
         default: boolean;
@@ -54,6 +62,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
         default: boolean;
     };
 }>>, {
+    disabled: boolean;
     isActive: boolean;
     command: Function;
     readonly: boolean;

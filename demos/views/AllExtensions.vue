@@ -4,6 +4,7 @@
 
     <el-tiptap
       lang="ru"
+      ref="editor"
       output="html"
       :extensions="allExtensions"
       v-model:content="content1"
@@ -142,7 +143,7 @@ const allExtensions = [
   Color.configure({ bubble: true }),
   Highlight.configure({ bubble: true }),
   FormatClear.configure({ bubble: true }),
-  History, // TODO
+  History.configure({ depth: 10 }), // TODO
   Heading.configure({ level: 5, bubble: true }),
   BulletList.configure({ bubble: true }),
   OrderedList.configure({ bubble: true }),

@@ -31,6 +31,11 @@ export default defineComponent({
       required: true,
     },
 
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+
     isActive: {
       type: Boolean,
       default: false,
@@ -62,14 +67,14 @@ export default defineComponent({
       return {
         'el-tiptap-editor__command-button': true,
         'el-tiptap-editor__command-button--active': this.isActive,
-        'el-tiptap-editor__command-button--readonly': this.readonly,
+        'el-tiptap-editor__command-button--readonly': (this.readonly || this.disabled),
       };
     },
   },
 
   methods: {
     onClick() {
-      if (!this.readonly) this.command();
+      if (!this.readonly && !this.disabled) this.command();
     },
   },
 });

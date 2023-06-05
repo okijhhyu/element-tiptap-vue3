@@ -18,7 +18,7 @@ It' s version of alpha tiptap 2.0.1 with fixed bugs and repaire previous functio
 
 It' s final version of lib i fixed all bugs, which i saw, welcome issues if you found bugs or warnings, i will try to fix it.
 
-I only done fix bugs and corrected some extentions and delete warnings[original](https://github.com/Leecason/element-tiptap)
+I only done fix bugs and corrected some extentions and delete warnings [original](https://github.com/Leecason/element-tiptap)
 
 if you are Russian company you can refer me job (okijhhyu@gmail.com)
 

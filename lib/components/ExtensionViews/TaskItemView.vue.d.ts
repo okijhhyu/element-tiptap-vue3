@@ -32,7 +32,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
         required: true;
     };
 }, unknown, {
-    done: any;
+    done: boolean;
 }, {}, {
     changeCheck(event: any): void;
 }, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{

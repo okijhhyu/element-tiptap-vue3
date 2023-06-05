@@ -282,10 +282,12 @@ export default defineComponent({
     const showFooter = computed(() => {
       return props.enableCharCount && !unref(isCodeViewMode);
     });
-    // Reactive prop conten
-    watch(() => props.content, () => {
-      editor.value.commands.setContent(props.content);
-    });
+    // Reactive prop content
+    function setContent(value:any) {
+      if (editor.value) {
+        editor.value.commands.setContent(value);
+      }
+    };
     const editorStyle = useEditorStyle({
       width: props.width,
       height: props.height,
@@ -303,6 +305,7 @@ export default defineComponent({
       isCodeViewMode,
       cmTextAreaRef,
       editorStyle,
+      setContent
     };
   },
 });

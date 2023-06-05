@@ -14,8 +14,13 @@ A WYSIWYG rich-text editor using [tiptap](https://github.com/ueberdosis/tiptap) 
 
 that's easy to use, friendly to developers, fully extensible and clean in design.
 
-It' s version of alpha tiptap 2.0.1 with fixed bugs and repaire previous functionality. Also deleted most warns in console while using. Also content is reactive now.
-## 📔 Languages
+It' s version of alpha tiptap 2.0.1 with fixed bugs and repaire previous functionality. Also deleted most warns in console while using.
+
+It' s final version of lib i fixed all bugs, which i saw, welcome issues if you found bugs or warnings, i will try to fix it.
+
+I only done fix bugs and corrected some extentions and delete warnings[original](https://github.com/Leecason/element-tiptap)
+
+if you are Russian company you can refer me job (okijhhyu@gmail.com)
 
 English
 
@@ -167,10 +172,20 @@ All available extensions:
 - `FontSize`
 - `CodeView`
 
-You can find all extensions docs [here](https://github.com/Leecason/element-tiptap/issues/107). TODO Correct documentation
+You can find all extensions docs [here](https://github.com/Leecason/element-tiptap/issues/107).
 
-You can customize the extension. See [Custom extensions](https://tiptap.dev/guide/custom-extensions). TODO Correct documentation
+You can customize the extension. See [Custom extensions](https://tiptap.dev/guide/custom-extensions).
 
+### setContent
+
+```html
+<el-tiptap ref="editor" />
+```
+
+```vue
+this.$refs.setContent(Content); 
+can do reactive, but history brokes so add this function, to change content if necessary.
+```
 ### placeholder
 
 Type: `string`

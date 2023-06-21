@@ -137,13 +137,13 @@ const allExtensions = [
   Underline.configure({ bubble: true }),
   Italic.configure({ bubble: true }),
   Strike.configure({ bubble: true }),
-  Code.configure({ bubble: true }), // TODO
+  Code.configure({ bubble: true }),
   FontFamily.configure({ bubble: true }),
   FontSize.configure({ bubble: true }),
   Color.configure({ bubble: true }),
   Highlight.configure({ bubble: true }),
   FormatClear.configure({ bubble: true }),
-  History.configure({ depth: 10 }), // TODO
+  History.configure({ depth: 10 }),
   Heading.configure({ level: 5, bubble: true }),
   BulletList.configure({ bubble: true }),
   OrderedList.configure({ bubble: true }),
@@ -153,8 +153,11 @@ const allExtensions = [
   Indent.configure({ bubble: true }),
   Blockquote.configure({ bubble: true }),
   CodeBlock.configure({ bubble: true }),
-  Link.configure({ bubble: true }), // TODO
-  Image.configure({ bubble: true }),
+  Link.configure({ bubble: true }),
+  Image.configure({
+    bubble: true,
+    defaultWidth: 400
+  }),
   Iframe.configure({ bubble: true }),
   Table.configure({ resizable: true }),
   HorizontalRule.configure({ bubble: true }),

@@ -174,6 +174,25 @@ All available extensions:
 
 You can find all extensions docs [here](https://github.com/Leecason/element-tiptap/issues/107).
 
+### Addendum to the link above
+Extention: `Image`
+
+Insert images with original width
+
+```vue
+ Image.configure({
+    defaultWidth: null
+  })
+```
+
+Insert images with width: 400px
+
+```vue
+ Image.configure({
+    defaultWidth: 400
+  })
+```
+
 You can customize the extension. See [Custom extensions](https://tiptap.dev/guide/custom-extensions).
 
 ### setContent

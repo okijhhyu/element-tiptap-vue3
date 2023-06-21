@@ -1,5 +1,5 @@
 <template>
-  <bubble-menu v-if="editor" :editor="editor">
+  <bubble-menu v-if="editor" v-show="activeMenu !== 'none'" :editor="editor">
     <div
       :class="{
         'el-tiptap-editor__menu-bubble--active': bubbleMenuEnable,

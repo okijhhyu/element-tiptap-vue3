@@ -1,6 +1,6 @@
 import { Editor } from '@tiptap/core';
 import { VueNodeViewRenderer } from '@tiptap/vue-3';
-import TiptapImage from '@tiptap/extension-image';
+import TiptapImage, { ImageOptions } from '@tiptap/extension-image';
 import InsertImageCommandButton from '@/components/MenuCommands/Image/InsertImageCommandButton.vue';
 import ImageView from '@/components/ExtensionViews/ImageView.vue';
 import { ImageDisplay } from '@/utils/image';
@@ -10,7 +10,10 @@ import {
   DEFAULT_IMAGE_URL_REGEX,
 } from '@/constants';
 
-const Image = TiptapImage.extend({
+interface CustomImageOptions extends ImageOptions {
+  defaultWidth: number | null;
+}
+const Image = TiptapImage.extend<CustomImageOptions>({
   // https://github.com/ueberdosis/tiptap/issues/1206
   inline() {
     return true;
@@ -24,7 +27,7 @@ const Image = TiptapImage.extend({
     return {
       ...this.parent?.(),
       width: {
-        default: DEFAULT_IMAGE_WIDTH,
+        default: this.options.defaultWidth,
         parseHTML: (element) => {
           const width =
             element.style.width || element.getAttribute('width') || null;
@@ -81,10 +84,11 @@ const Image = TiptapImage.extend({
     };
   },
 
-  addOptions() {
+  addOptions(): any {
     return {
       ...this.parent?.(),
       inline: true,
+      defaultWidth: DEFAULT_IMAGE_WIDTH,
       uploadRequest: null,
       urlPattern: DEFAULT_IMAGE_URL_REGEX,
       button({ editor }: { editor: Editor }) {

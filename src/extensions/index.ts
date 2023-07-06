@@ -37,3 +37,4 @@ export { default as Fullscreen } from './fullscreen';
 export { default as Print } from './print';
 export { default as SelectAll } from './select-all';
 export { default as CodeView } from './code-view';
+export { default as Gapcursor } from '@tiptap/extension-gapcursor';

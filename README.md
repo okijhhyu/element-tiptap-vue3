@@ -171,6 +171,7 @@ All available extensions:
 - `FontFamily`
 - `FontSize`
 - `CodeView`
+- [`Gapcursor`](https://tiptap.dev/api/extensions/gapcursor/)
 
 You can find all extensions docs [here](https://github.com/Leecason/element-tiptap/issues/107).
 

@@ -8,6 +8,7 @@
       output="html"
       :extensions="allExtensions"
       v-model:content="content1"
+      height="50vh"
     />
     {{ content1 }}
     <el-tiptap
@@ -66,6 +67,7 @@ import {
   SelectAll,
   History,
   CodeView,
+  Gapcursor
 } from 'element-tiptap-vue3-fixed';
 
 import codemirror from 'codemirror';
@@ -127,6 +129,7 @@ const richAndToolsExtensions = [
       autoCloseTags: true,
     },
   }),
+  // Gapcursor,
   History,
 ];
 const allExtensions = [
@@ -172,5 +175,6 @@ const allExtensions = [
       autoCloseTags: true,
     },
   }),
+  Gapcursor
 ];
 </script>

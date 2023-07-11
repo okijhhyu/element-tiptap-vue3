@@ -2,12 +2,15 @@
   <node-view-wrapper as="span" :class="imageViewClass">
     <div
       :class="{
-        'image-view__body--focused': selected && editor?.isEditable,
-        'image-view__body--resizing': resizing && editor?.isEditable,
+        'image-view__body--focused': selected && editor?.isEditable && !isDragging,
+        'image-view__body--resizing': resizing && editor?.isEditable && !isDragging,
         'image-view__body': editor?.isEditable
       }"
     >
       <img
+        contenteditable="false"
+        draggable="false"
+        ref="content"
         :src="src"
         :title="node!.attrs.title"
         :alt="node!.attrs.alt"
@@ -16,11 +19,19 @@
         class="image-view__body__image"
         @click="selectImage"
       />
+      <span
+        v-if="node.attrs.draggable"
+        class="mover-button"
+        :data-drag-handle="node.attrs.draggable"
+        @mousedown.left="startDragging()"
+      >
+        ✥
+      </span>
 
       <div
         v-if="editor?.isEditable"
-        v-show="selected || resizing"
-        class="image-resizer"
+        v-show="(selected || resizing) && !isDragging"
+        class="image-resizer drag-handle"
       >
         <span
           v-for="direction in resizeDirections"
@@ -35,7 +46,7 @@
       bubble menu's position is miscalculated
       use el-popover instead bubble menu -->
       <el-popover
-        :visible="selected"
+        :visible="selected && !isDragging"
         :disabled="!editor?.isEditable"
         :show-arrow="false"
         placement="top"
@@ -91,6 +102,7 @@ export default defineComponent({
         width: MAX_SIZE,
         height: MAX_SIZE,
       },
+      isDragging: false,
 
       originalSize: {
         width: 0,
@@ -164,8 +176,14 @@ export default defineComponent({
   },
 
   methods: {
+    startDragging() {
+      this.isDragging = true;
+      this.editor.commands.blur();
+    },
+
     // https://github.com/scrumpy/tiptap/issues/361#issuecomment-540299541
     selectImage() {
+      this.isDragging = false;
       this.editor?.commands.setNodeSelection(this.getPos!());
     },
 

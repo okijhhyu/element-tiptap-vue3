@@ -67,7 +67,8 @@ import {
   SelectAll,
   History,
   CodeView,
-  Gapcursor
+  Gapcursor,
+  Dropcursor
 } from 'element-tiptap-vue3-fixed';
 
 import codemirror from 'codemirror';
@@ -159,7 +160,8 @@ const allExtensions = [
   Link.configure({ bubble: true }),
   Image.configure({
     bubble: true,
-    defaultWidth: 400
+    defaultWidth: 400,
+    draggable: true
   }),
   Iframe.configure({ bubble: true }),
   Table.configure({ resizable: true }),
@@ -175,6 +177,7 @@ const allExtensions = [
       autoCloseTags: true,
     },
   }),
-  Gapcursor
+  Gapcursor,
+  Dropcursor
 ];
 </script>

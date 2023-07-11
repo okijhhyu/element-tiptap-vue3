@@ -172,6 +172,7 @@ All available extensions:
 - `FontSize`
 - `CodeView`
 - [`Gapcursor`](https://tiptap.dev/api/extensions/gapcursor/)
+- [`Dropcursor`](https://tiptap.dev/api/extensions/gapcursor/)
 
 You can find all extensions docs [here](https://github.com/Leecason/element-tiptap/issues/107).
 
@@ -191,6 +192,14 @@ Insert images with width: 400px
 ```vue
  Image.configure({
     defaultWidth: 400
+  })
+```
+
+Dragging images (tests)
+adding button which allow to move images 
+```vue
+ Image.configure({
+    draggable: true
   })
 ```
 

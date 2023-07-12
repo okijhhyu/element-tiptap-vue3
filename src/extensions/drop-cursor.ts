@@ -114,7 +114,6 @@ class DropCursorView {
       parentTop = rect.top - parent.scrollTop;
     }
 
-    console.log(rect, parentTop, parentLeft);
     this.element.style.left = (rect.left - parentLeft) + 'px';
     this.element.style.top = (rect.top - parentTop) + 'px';
     this.element.style.width = (rect.right - rect.left) + 'px';

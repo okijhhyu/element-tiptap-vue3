@@ -30,6 +30,7 @@
             :tooltip="t('editor.extensions.Image.buttons.insert_image.tooltip')"
             :readonly="isCodeViewMode"
             icon="image"
+            :button-icon="buttonIcon"
           />
         </span>
       </template>
@@ -88,6 +89,10 @@ export default defineComponent({
       type: Editor,
       required: true,
     },
+    buttonIcon: {
+      default: '',
+      type: String
+    }
   },
 
   setup() {

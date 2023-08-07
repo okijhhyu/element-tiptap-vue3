@@ -8,13 +8,15 @@ const BulletList = TiptapBulletList.extend({
   addOptions() {
     return {
       ...this.parent?.(),
-      button({ editor, t }: { editor: Editor; t: (...args: any[]) => string }) {
+      buttonIcon: '',
+      button({ editor, extension, t }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: CommandButton,
           componentProps: {
             command: () => {
               editor.commands.toggleBulletList();
             },
+            buttonIcon: extension.options.buttonIcon,
             isActive: editor.isActive('bulletList'),
             icon: 'list-ul',
             tooltip: t('editor.extensions.BulletList.tooltip'),

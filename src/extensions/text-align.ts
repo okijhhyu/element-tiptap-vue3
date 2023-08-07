@@ -6,17 +6,10 @@ const TextAlign = TiptapTextAlign.extend({
   addOptions() {
     return {
       ...this.parent?.(),
+      buttonIcon: ['', '', '', ''],
       types: ['heading', 'paragraph', 'list_item', 'title'],
-      button({
-        editor,
-        extension,
-        t,
-      }: {
-        editor: Editor;
-        extension: Extension;
-        t: (...args: any[]) => string;
-      }) {
-        return extension.options.alignments.reduce((acc, alignment) => {
+      button({ editor, extension, t }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
+        return extension.options.alignments.reduce((acc: any[], alignment: string) => {
           return acc.concat({
             component: CommandButton,
             componentProps: {
@@ -32,6 +25,7 @@ const TextAlign = TiptapTextAlign.extend({
                   ? false
                   : editor.isActive({ textAlign: alignment }),
               icon: `align-${alignment}`,
+              buttonIcon: extension.options.buttonIcon?.[acc.length],
               tooltip: t(
                 `editor.extensions.TextAlign.buttons.align_${alignment}.tooltip`
               ),

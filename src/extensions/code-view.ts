@@ -35,9 +35,13 @@ const CodeView = Extension.create<CodeViewOptions>({
   addOptions() {
     return {
       ...this.parent?.(),
-      button() {
+      buttonIcon: '',
+      button({ extension }: { extension: any; }) {
         return {
           component: CodeViewCommandButton,
+          componentProps: {
+            buttonIcon: extension.options.buttonIcon,
+          }
         };
       },
     };

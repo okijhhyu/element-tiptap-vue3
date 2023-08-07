@@ -5,6 +5,7 @@
       :enable-tooltip="enableTooltip"
       :tooltip="t('editor.extensions.Image.buttons.image_options.tooltip')"
       icon="ellipsis-h"
+      :button-icon="buttonIcon"
     />
 
     <el-dialog
@@ -90,6 +91,10 @@ export default defineComponent({
   props: {
     node: nodeViewProps['node'],
     updateAttrs: nodeViewProps['updateAttributes'],
+    buttonIcon: {
+      default: '',
+      type: String
+    }
   },
 
   data() {

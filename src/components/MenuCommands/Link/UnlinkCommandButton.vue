@@ -4,6 +4,7 @@
     :enable-tooltip="enableTooltip"
     :tooltip="t('editor.extensions.Link.unlink.tooltip')"
     icon="unlink"
+    :button-icon="buttonIcon"
   />
 </template>
 
@@ -24,6 +25,10 @@ export default defineComponent({
       type: Editor,
       required: true,
     },
+    buttonIcon: {
+      default: '',
+      type: String
+    }
   },
 
   setup() {

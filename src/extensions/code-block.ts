@@ -6,13 +6,15 @@ const CodeBlock = TiptapCodeBlock.extend({
   addOptions() {
     return {
       ...this.parent?.(),
-      button({ editor, t }: { editor: Editor; t: (...args: any[]) => string }) {
+      buttonIcon: '',
+      button({ editor, extension, t }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: CommandButton,
           componentProps: {
             command: () => {
               editor.commands.toggleCodeBlock();
             },
+            buttonIcon: extension.options.buttonIcon,
             isActive: editor.isActive('codeBlock'),
             icon: 'code',
             tooltip: t('editor.extensions.CodeBlock.tooltip'),

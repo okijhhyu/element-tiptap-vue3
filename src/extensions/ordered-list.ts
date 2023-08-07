@@ -7,14 +7,16 @@ const OrderedList = TiptapOrderedList.extend({
   nessesaryExtensions: [ListItem],
   addOptions() {
     return {
+      buttonIcon: '',
       ...this.parent?.(),
-      button({ editor, t }: { editor: Editor; t: (...args: any[]) => string }) {
+      button({ editor, extension, t }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: CommandButton,
           componentProps: {
             command: () => {
               editor.commands.toggleOrderedList();
             },
+            buttonIcon: extension.options.buttonIcon,
             isActive: editor.isActive('orderedList'),
             icon: 'list-ol',
             tooltip: t('editor.extensions.OrderedList.tooltip'),

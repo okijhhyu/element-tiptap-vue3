@@ -7,9 +7,13 @@ const Fullscreen = Extension.create({
   addOptions() {
     return {
       ...this.parent?.(),
-      button() {
+      buttonIcon: '',
+      button({ extension }: { extension: any; t: (...args: any[]) => string }) {
         return {
           component: FullscreenCommandButton,
+          componentProps: {
+            buttonIcon: extension.options.buttonIcon,
+          }
         };
       },
     };

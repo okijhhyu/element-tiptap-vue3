@@ -6,7 +6,8 @@ const History = TiptapHistory.extend({
   addOptions() {
     return {
       ...this.parent?.(),
-      button({ editor, t }: { editor: Editor; t: (...args: any[]) => string }) {
+      buttonIcon: ['', ''],
+      button({ editor, extension, t }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return [
           {
             component: CommandButton,
@@ -16,6 +17,7 @@ const History = TiptapHistory.extend({
               },
               disabled: !editor.can().chain().focus().undo().run(),
               icon: 'undo',
+              buttonIcon: extension.options.buttonIcon?.[0],
               tooltip: t('editor.extensions.History.tooltip.undo'),
             },
           },
@@ -27,6 +29,7 @@ const History = TiptapHistory.extend({
               },
               disabled: !editor.can().chain().focus().redo().run(),
               icon: 'redo',
+              buttonIcon: extension.options.buttonIcon?.[1],
               tooltip: t('editor.extensions.History.tooltip.redo'),
             },
           },

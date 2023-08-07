@@ -92,15 +92,17 @@ const Image = TiptapImage.extend<CustomImageOptions>({
     return {
       ...this.parent?.(),
       inline: true,
+      buttonIcon: '',
       defaultWidth: DEFAULT_IMAGE_WIDTH,
       uploadRequest: null,
       urlPattern: DEFAULT_IMAGE_URL_REGEX,
       draggable: false,
-      button({ editor }: { editor: Editor }) {
+      button({ editor, extension }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: InsertImageCommandButton,
           componentProps: {
-            editor
+            editor,
+            buttonIcon: extension.options.buttonIcon,
           },
         };
       },

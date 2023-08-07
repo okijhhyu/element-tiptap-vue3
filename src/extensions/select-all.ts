@@ -8,7 +8,8 @@ const SelectAll = Extension.create({
   addOptions() {
     return {
       ...this.parent?.(),
-      button({ editor, t }: { editor: Editor; t: (...args: any[]) => string }) {
+      buttonIcon: '',
+      button({ editor, extension, t }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: CommandButton,
           componentProps: {
@@ -16,6 +17,7 @@ const SelectAll = Extension.create({
               editor.chain().focus();
               editor.commands.selectAll();
             },
+            buttonIcon: extension.options.buttonIcon,
             icon: 'select-all',
             tooltip: t('editor.extensions.SelectAll.tooltip'),
           },

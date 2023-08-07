@@ -29,11 +29,13 @@ const FontFamily = Extension.create<FontFamilyOptions>({
     return {
       types: ['textStyle'],
       fontFamilyMap: DEFAULT_FONT_FAMILY_MAP,
-      button({ editor }: { editor: Editor; }) {
+      buttonIcon: '',
+      button({ editor, extension }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: FontFamilyDropdown,
           componentProps: {
             editor,
+            buttonIcon: extension.options.buttonIcon,
           },
         };
       },

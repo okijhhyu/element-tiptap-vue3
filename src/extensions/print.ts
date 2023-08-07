@@ -19,13 +19,15 @@ const Print = Extension.create({
 
   addOptions() {
     return {
-      button({ editor, t }: { editor: Editor; t: (...args: any[]) => string }) {
+      buttonIcon: '',
+      button({ editor, extension, t }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: CommandButton,
           componentProps: {
             command: () => {
               editor.commands.print();
             },
+            buttonIcon: extension.options.buttonIcon,
             icon: 'print',
             tooltip: t('editor.extensions.Print.tooltip'),
           },

@@ -5,6 +5,7 @@
       :enable-tooltip="enableTooltip"
       :tooltip="t('editor.extensions.Link.edit.tooltip')"
       icon="edit"
+      :button-icon="buttonIcon"
     />
 
     <el-dialog
@@ -84,6 +85,10 @@ export default defineComponent({
       type: Object,
       required: true,
     },
+    buttonIcon: {
+      default: '',
+      type: String
+    }
   },
 
   setup() {

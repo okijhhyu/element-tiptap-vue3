@@ -5,6 +5,7 @@
       :enable-tooltip="enableTooltip"
       :tooltip="t('editor.extensions.CodeView.tooltip')"
       icon="file-code"
+      :button-icon="buttonIcon"
       :is-active="isCodeViewMode"
     />
   </div>
@@ -21,6 +22,12 @@ export default defineComponent({
     CommandButton,
   },
 
+  props: {
+    buttonIcon: {
+      default: '',
+      type: String
+    }
+  },
   setup() {
     const t = inject('t');
     const enableTooltip = inject('enableTooltip', true);

@@ -12,6 +12,7 @@
         :is-active="editor.isActive('heading')"
         :tooltip="t('editor.extensions.Heading.tooltip')"
         :readonly="isCodeViewMode"
+        :button-icon="buttonIcon"
         icon="heading"
       />
     </div>
@@ -77,6 +78,10 @@ export default defineComponent({
       type: Array,
       required: true,
     },
+    buttonIcon: {
+      default: '',
+      type: String
+    }
   },
 
   setup() {

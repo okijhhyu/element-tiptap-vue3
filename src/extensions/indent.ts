@@ -29,10 +29,11 @@ const Indent = Extension.create<IndentOptions>({
 
   addOptions() {
     return {
+      buttonIcon: ['', ''],
       types: ['paragraph', 'heading', 'blockquote'],
       minIndent: IndentProps.min,
       maxIndent: IndentProps.max,
-      button({ editor, t }: { editor: Editor; t: (...args: any[]) => string }) {
+      button({ editor, extension, t }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return [
           {
             component: CommandButton,
@@ -40,6 +41,7 @@ const Indent = Extension.create<IndentOptions>({
               command: () => {
                 editor.commands.indent();
               },
+              buttonIcon: extension.options.buttonIcon?.[0],
               icon: 'indent',
               tooltip: t('editor.extensions.Indent.buttons.indent.tooltip'),
             },
@@ -51,6 +53,7 @@ const Indent = Extension.create<IndentOptions>({
                 editor.commands.outdent();
               },
               icon: 'outdent',
+              buttonIcon: extension.options.buttonIcon?.[1],
               tooltip: t('editor.extensions.Indent.buttons.outdent.tooltip'),
             },
           },

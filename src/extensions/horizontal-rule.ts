@@ -6,13 +6,15 @@ const HorizontalRule = TiptapHorizontalRule.extend({
   addOptions() {
     return {
       ...this.parent?.(),
-      button({ editor, t }: { editor: Editor; t: (...args: any[]) => string }) {
+      buttonIcon: '',
+      button({ editor, extension, t }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: CommandButton,
           componentProps: {
             command: () => {
               editor.commands.setHorizontalRule();
             },
+            buttonIcon: extension.options.buttonIcon,
             icon: 'horizontal-rule',
             tooltip: t('editor.extensions.HorizontalRule.tooltip'),
           },

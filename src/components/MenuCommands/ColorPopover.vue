@@ -55,6 +55,7 @@
           :enable-tooltip="enableTooltip"
           :tooltip="t('editor.extensions.TextColor.tooltip')"
           icon="font-color"
+          :button-icon="buttonIcon"
           :readonly="isCodeViewMode"
         />
       </span>
@@ -83,6 +84,10 @@ export default defineComponent({
       type: Editor,
       required: true,
     },
+    buttonIcon: {
+      default: '',
+      type: String
+    }
   },
 
   setup(props) {

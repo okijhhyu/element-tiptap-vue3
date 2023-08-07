@@ -6,13 +6,15 @@ const Bold = TiptapBold.extend({
   addOptions() {
     return {
       ...this.parent?.(),
-      button({ editor, t }: { editor: Editor; t: (...args: any[]) => string }) {
+      buttonIcon: '',
+      button({ editor, extension, t }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: CommandButton,
           componentProps: {
             command: () => {
               editor.commands.toggleBold();
             },
+            buttonIcon: extension.options.buttonIcon,
             isActive: editor.isActive('bold'),
             icon: 'bold',
             tooltip: t('editor.extensions.Bold.tooltip'),

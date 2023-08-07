@@ -6,7 +6,8 @@ const Italic = TiptapItalic.extend({
   addOptions() {
     return {
       ...this.parent?.(),
-      button({ editor, t }: { editor: Editor; t: (...args: any[]) => string }) {
+      buttonIcon: '',
+      button({ editor, extension, t }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: CommandButton,
           componentProps: {
@@ -15,6 +16,7 @@ const Italic = TiptapItalic.extend({
             },
             isActive: editor.isActive('italic'),
             icon: 'italic',
+            buttonIcon: extension.options.buttonIcon,
             tooltip: t('editor.extensions.Italic.tooltip'),
           },
         };

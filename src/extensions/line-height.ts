@@ -26,13 +26,15 @@ const LineHeight = Extension.create<LineHeightOptions>({
 
   addOptions() {
     return {
+      buttonIcon: '',
       types: ['paragraph', 'heading', 'list_item', 'todo_item'],
       lineHeights: ['100%', '115%', '150%', '200%', '250%', '300%'],
-      button({ editor }: { editor: Editor }) {
+      button({ editor, extension }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: LineHeightDropdown,
           componentProps: {
             editor,
+            buttonIcon: extension.options.buttonIcon,
           },
         };
       },

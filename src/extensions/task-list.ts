@@ -6,8 +6,9 @@ import TaskItem from './task-item';
 const TaskList = TiptapTaskList.extend({
   addOptions() {
     return {
+      buttonIcon: '',
       ...this.parent?.(),
-      button({ editor, t }: { editor: Editor; t: (...args: any[]) => string }) {
+      button({ editor, extension, t }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: CommandButton,
           componentProps: {
@@ -15,6 +16,7 @@ const TaskList = TiptapTaskList.extend({
               editor.commands.toggleTaskList();
             },
             isActive: editor.isActive('taskList'),
+            buttonIcon: extension.options.buttonIcon,
             icon: 'tasks',
             tooltip: t('editor.extensions.TodoList.tooltip'),
           },

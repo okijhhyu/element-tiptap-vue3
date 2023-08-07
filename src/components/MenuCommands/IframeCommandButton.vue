@@ -4,6 +4,7 @@
     :enable-tooltip="enableTooltip"
     :tooltip="t('editor.extensions.Iframe.tooltip')"
     :readonly="isCodeViewMode"
+    :button-icon="buttonIcon"
     icon="video"
   />
 </template>
@@ -25,6 +26,10 @@ export default defineComponent({
     editor: {
       type: Editor,
       required: true,
+    },
+    buttonIcon: {
+      default: '',
+      type: String
     },
   },
 

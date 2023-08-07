@@ -33,11 +33,13 @@ const FontSize = Extension.create<FontSizeOptions>({
     return {
       types: ['textStyle'],
       fontSizes: DEFAULT_FONT_SIZES,
-      button({ editor }: { editor: Editor }) {
+      buttonIcon: '',
+      button({ editor, extension }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: FontSizeDropdown,
           componentProps: {
             editor,
+            buttonIcon: extension.options.buttonIcon,
           },
         };
       },

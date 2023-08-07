@@ -9,6 +9,7 @@
     <div>
       <command-button
         :enable-tooltip="enableTooltip"
+        :button-icon="buttonIcon"
         :tooltip="t('editor.extensions.LineHeight.tooltip')"
         :readonly="isCodeViewMode"
         icon="text-height"
@@ -54,6 +55,10 @@ export default defineComponent({
     editor: {
       type: Editor,
       required: true,
+    },
+    buttonIcon: {
+      default: '',
+      type: String
     },
   },
 

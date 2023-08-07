@@ -204,7 +204,35 @@ adding button which allow to move images
 ```
 
 You can customize the extension. See [Custom extensions](https://tiptap.dev/guide/custom-extensions).
+### Example custom extension
+```vue
+import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
+import {
+  Editor
+} from '@tiptap/core';
+import { CommandButton } from 'element-tiptap-vue3-fixed';
 
+export default CodeBlockLowlight.extend({
+  addOptions() {
+    return {
+      ...this.parent?.(),
+      button({ editor, t }: { editor: Editor; t: (...args: any[]) => string }) {
+        return {
+          component: CommandButton, // component of button which is used in menubar or bubblemenu (u can write your own component of button)
+          componentProps: { // props is used in component
+            command: () => { // command on click button
+              editor.commands.toggleCodeBlock();
+            },
+            isActive: editor.isActive('codeBlock'),
+            icon: 'code', // later will be added oportunity to add your custom svg
+            tooltip: t('editor.extensions.CodeBlock.tooltip'),
+          },
+        };
+      },
+    };
+  },
+});
+```
 ### setContent
 
 ```html

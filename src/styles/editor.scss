@@ -443,9 +443,23 @@
     table {
       border-collapse: collapse;
       table-layout: fixed;
-      width: 100%;
       margin: 0;
       overflow: hidden;
+    }
+
+    .align-table {
+      display: inline-block;
+    }
+    
+    .align-table table {
+      transform: scaleX(-1);
+    }
+    
+    .align-table {
+      transform: scaleX(-1);
+    }
+    .default-table {
+      width: 100%;
     }
 
     th,

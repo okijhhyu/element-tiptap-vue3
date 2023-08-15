@@ -66,9 +66,6 @@ export default defineComponent({
       default: false,
     },
   },
-  mounted() {
-    console.log(this);
-  },
   computed: {
     commandButtonClass(): object {
       return {

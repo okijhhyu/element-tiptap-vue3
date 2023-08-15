@@ -171,6 +171,7 @@ All available extensions:
 - `FontFamily`
 - `FontSize`
 - `CodeView`
+- [`CodeBlockLowlight`](https://tiptap.dev/api/nodes/code-block-lowlight)
 - [`Gapcursor`](https://tiptap.dev/api/extensions/gapcursor/)
 - [`Dropcursor`](https://tiptap.dev/api/extensions/gapcursor/)
 
@@ -243,7 +244,7 @@ export default CodeBlockLowlight.extend({
             // WARNING buttonIcon attribute supports incoming HTML fragments, it is very dangerous to dynamically render arbitrary HTML on the website, because it is easy to cause XSS attack.
             buttonIcon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" height="16" width="16" fill="currentColor"> ... </svg>', // your custom svg, if there is not uses default
             isActive: editor.isActive('codeBlock'),
-            icon: 'code', // later will be added oportunity to add your custom svg
+            icon: 'code', // name of element-tiptap icon (don't customized)
             tooltip: t('editor.extensions.CodeBlock.tooltip'),
           },
         };

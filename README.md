@@ -221,6 +221,15 @@ adding button which allow to move images
   })
 ```
 
+Extention: `Link`
+
+placeholder
+```vue
+  Link.configure({ 
+    addLinkPlaceholder: 'add link', // placeholder for adding link
+    editLinkPlaceholder: 'edit link' // placeholder for editing link
+  }),
+
 You can customize the extension. See [Custom extensions](https://tiptap.dev/guide/custom-extensions).
 ### Example custom extension
 ```vue

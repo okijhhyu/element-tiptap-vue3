@@ -22,7 +22,10 @@
           :label="t('editor.extensions.Link.add.control.href')"
           prop="href"
         >
-          <el-input v-model="linkAttrs.href" autocomplete="off" />
+          <el-input
+            v-model="linkAttrs.href"
+            autocomplete="off"
+            :placeholder = placeholder />
         </el-form-item>
 
         <el-form-item prop="openInNewTab">
@@ -83,6 +86,10 @@ export default defineComponent({
       required: true,
     },
     buttonIcon: {
+      default: '',
+      type: String
+    },
+    placeholder: {
       default: '',
       type: String
     }

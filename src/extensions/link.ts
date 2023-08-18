@@ -10,12 +10,15 @@ const Link = TiptapLink.extend({
     return {
       ...this.parent?.(),
       buttonIcon: '',
+      addLinkPlaceholder: '',
+      editLinkPlaceholder: '',
       button({ editor, extension }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: AddLinkCommandButton,
           componentProps: {
             editor,
             buttonIcon: extension.options.buttonIcon,
+            placeholder: extension.options.addLinkPlaceholder
           },
         };
       },

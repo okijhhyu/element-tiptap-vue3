@@ -167,7 +167,7 @@ const allExtensions = [
   Indent.configure({ bubble: true }),
   Blockquote.configure({ bubble: true }),
   CodeBlockLowlight.configure({ lowlight }),
-  Link.configure({ bubble: true }),
+  Link.configure({ bubble: true, addLinkPlaceholder: 'add link', editLinkPlaceholder: 'edit link' }),
   Image.configure({
     bubble: true,
     defaultWidth: 400,

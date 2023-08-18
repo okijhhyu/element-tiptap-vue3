@@ -225,9 +225,16 @@ export default defineComponent({
         uniqueObjects.push(obj);
       }
     }
+    const allExtensions = [...extensions, ...uniqueObjects];
     const editor = useEditor({
       content: props.content,
-      extensions: [...extensions, ...uniqueObjects],
+      extensions: allExtensions.map((item, index) => {
+        if (!item.options.priority) {
+          return item.configure({ priority: allExtensions.length - index });
+        } else {
+          return item;
+        }
+      }),
       editable: !props.readonly,
       onCreate: (options) => {
         emit('onCreate', options);
@@ -257,7 +264,7 @@ export default defineComponent({
         editable: !props.readonly,
       });
     });
-    
+
     // i18n
     const i18nHandler = Trans.buildI18nHandler(props.lang);
     const t = (...args: any[]): string => {

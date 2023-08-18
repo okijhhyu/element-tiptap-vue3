@@ -46,11 +46,11 @@ export default defineComponent({
         });
 
         if (Array.isArray(menuBtnComponentSpec)) {
-          return [...acc, ...menuBtnComponentSpec];
+          return [...acc, ...menuBtnComponentSpec.map(item => { return { ...item, priority: extension.options.priority }; })];
         }
 
-        return [...acc, menuBtnComponentSpec];
-      }, []);
+        return [...acc, { ...menuBtnComponentSpec, priority: extension.options.priority }];
+      }, [])?.sort((a:any, b:any) => b.priority - a.priority);
     },
   },
 });

@@ -30,11 +30,10 @@ export default defineComponent({
       required: true,
     },
   },
-
   computed: {
     linkAttrs() {
       return this.editor.getAttributes('link');
-    },
+    }
   },
 });
 </script>

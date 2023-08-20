@@ -538,16 +538,22 @@
     }
   }
 
+
   .mover-button {
-    cursor: grab;
     position: absolute;
-    left: -20px;
-    bottom: 50%;
-    font-size: 24px;
-    background: #fff;
+    cursor: grab;
+    right: -18px;
+    top: -10px;
     color: var(--el-color-primary);
-    display: flex;
-    align-items: center;
+    background: #fff;
+
+    &::after {
+      position: relative;
+      display: flex;
+      width: 15px;
+      height: 15px;
+      align-items: center;
+    }
   }
 
   &__characters {

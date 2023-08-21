@@ -64,11 +64,13 @@ const Iframe = Node.create({
 
   addOptions() {
     return {
-      button({ editor }: { editor: Editor }) {
+      buttonIcon: '',
+      button({ editor, extension }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: IframeCommandButton,
           componentProps: {
             editor,
+            buttonIcon: extension.options.buttonIcon,
           },
         };
       },

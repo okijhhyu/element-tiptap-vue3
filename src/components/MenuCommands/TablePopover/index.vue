@@ -111,6 +111,7 @@
           :tooltip="t('editor.extensions.Table.tooltip')"
           :readonly="isCodeViewMode"
           icon="table"
+          :button-icon="buttonIcon"
         />
       </span>
     </template>
@@ -143,6 +144,10 @@ export default defineComponent({
       type: Editor,
       required: true,
     },
+    buttonIcon: {
+      default: '',
+      type: String
+    }
   },
 
   setup() {

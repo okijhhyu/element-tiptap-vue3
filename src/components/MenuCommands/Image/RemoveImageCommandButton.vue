@@ -5,6 +5,7 @@
       :enable-tooltip="enableTooltip"
       :tooltip="t('editor.extensions.Image.buttons.remove_image.tooltip')"
       icon="trash-alt"
+      :button-icon="buttonIcon"
     />
   </div>
 </template>
@@ -24,6 +25,10 @@ export default defineComponent({
 
   props: {
     editor: nodeViewProps['editor'],
+    buttonIcon: {
+      default: '',
+      type: String
+    }
   },
 
   setup() {

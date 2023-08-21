@@ -31,12 +31,14 @@ const Table = TableTiptap.extend<TableOptionsOptions>({
   addOptions() {
     return {
       ...this.parent?.(),
+      buttonIcon: '',
       resizable: false,
-      button({ editor }: { editor: Editor }) {
+      button({ editor, extension }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: TablePopover,
           componentProps: {
             editor,
+            buttonIcon: extension.options.buttonIcon,
           },
         };
       },

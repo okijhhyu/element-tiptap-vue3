@@ -5,6 +5,7 @@
         :enable-tooltip="enableTooltip"
         :tooltip="t('editor.extensions.FontSize.tooltip')"
         :readonly="isCodeViewMode"
+        :button-icon="buttonIcon"
         icon="font-size"
       />
     </div>
@@ -62,6 +63,10 @@ export default defineComponent({
       type: Editor,
       required: true,
     },
+    buttonIcon: {
+      default: '',
+      type: String
+    }
   },
 
   setup() {

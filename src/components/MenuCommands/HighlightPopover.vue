@@ -31,6 +31,7 @@
     <template #reference>
       <span>
         <command-button
+          :button-icon="buttonIcon"
           :enable-tooltip="enableTooltip"
           :tooltip="t('editor.extensions.TextHighlight.tooltip')"
           icon="highlight"
@@ -42,18 +43,16 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, inject, ref, unref, watch } from 'vue';
+import { computed, defineComponent, inject, ref, unref } from 'vue';
 import { Editor, getMarkAttributes } from '@tiptap/vue-3';
-import { ElButton, ElPopover, ElInput } from 'element-plus';
+import { ElPopover } from 'element-plus';
 import CommandButton from './CommandButton.vue';
 
 export default defineComponent({
   name: 'HighlightPopover',
 
   components: {
-    ElButton,
     ElPopover,
-    ElInput,
     CommandButton,
   },
 
@@ -62,6 +61,10 @@ export default defineComponent({
       type: Editor,
       required: true,
     },
+    buttonIcon: {
+      default: '',
+      type: String
+    }
   },
 
   setup(props) {

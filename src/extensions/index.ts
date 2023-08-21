@@ -6,6 +6,7 @@ export { default as Paragraph } from '@tiptap/extension-paragraph';
 export { default as Heading } from './heading';
 export { default as Blockquote } from './blockquote';
 export { default as CodeBlock } from './code-block';
+export { default as CodeBlockLowlight } from './code-block-lowlight';
 export { default as BulletList } from './bullet-list';
 export { default as OrderedList } from './ordered-list';
 export { default as Image } from './image';

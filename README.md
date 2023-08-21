@@ -171,12 +171,30 @@ All available extensions:
 - `FontFamily`
 - `FontSize`
 - `CodeView`
+- [`CodeBlockLowlight`](https://tiptap.dev/api/nodes/code-block-lowlight)
 - [`Gapcursor`](https://tiptap.dev/api/extensions/gapcursor/)
 - [`Dropcursor`](https://tiptap.dev/api/extensions/gapcursor/)
 
 You can find all extensions docs [here](https://github.com/Leecason/element-tiptap/issues/107).
 
 ### Addendum to the link above
+Extension: `All`
+
+Custom svg for extensions
+
+```Vue
+ Image.configure({
+    buttonIcon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" height="16" width="16" fill="currentColor"> ... </svg>'
+ })
+```
+for (Indent, History) ['swg', 'swg']
+for (TextAlign) ['swg', 'swg', 'swg', 'swg']
+
+.. pull-quote::
+  **Warning**
+  
+  **NB:** Although the buttonIcon attribute supports incoming HTML fragments, it is very dangerous to dynamically render arbitrary HTML on the website, because it is easy to cause XSS attack. Please make sure that the content of buttonIcon is trustworthy. Never assign user-submitted content to the buttonIcon attribute.
+
 Extention: `Image`
 
 Insert images with original width
@@ -203,8 +221,47 @@ adding button which allow to move images
   })
 ```
 
-You can customize the extension. See [Custom extensions](https://tiptap.dev/guide/custom-extensions).
+Extention: `Link`
 
+placeholder
+```vue
+  Link.configure({ 
+    addLinkPlaceholder: 'add link', // placeholder for adding link
+    editLinkPlaceholder: 'edit link' // placeholder for editing link
+  }),
+
+You can customize the extension. See [Custom extensions](https://tiptap.dev/guide/custom-extensions).
+### Example custom extension
+```vue
+import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
+import {
+  Editor
+} from '@tiptap/core';
+import { CommandButton } from 'element-tiptap-vue3-fixed';
+
+export default CodeBlockLowlight.extend({
+  addOptions() {
+    return {
+      ...this.parent?.(),
+      button({ editor, t }: { editor: Editor; t: (...args: any[]) => string }) {
+        return {
+          component: CommandButton, // component of button which is used in menubar or bubblemenu (u can write your own component of button)
+          componentProps: { // props is used in component
+            command: () => { // command on click button
+              editor.commands.toggleCodeBlock();
+            },
+            // WARNING buttonIcon attribute supports incoming HTML fragments, it is very dangerous to dynamically render arbitrary HTML on the website, because it is easy to cause XSS attack.
+            buttonIcon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" height="16" width="16" fill="currentColor"> ... </svg>', // your custom svg, if there is not uses default
+            isActive: editor.isActive('codeBlock'),
+            icon: 'code', // name of element-tiptap icon (don't customized)
+            tooltip: t('editor.extensions.CodeBlock.tooltip'),
+          },
+        };
+      },
+    };
+  },
+});
+```
 ### setContent
 
 ```html

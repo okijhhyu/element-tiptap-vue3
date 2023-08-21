@@ -4,6 +4,7 @@
       :command="() => toggleFullscreen(!isFullscreen)"
       :enable-tooltip="enableTooltip"
       :tooltip="buttonTooltip"
+      :button-icon="buttonIcon"
       :icon="isFullscreen ? 'compress' : 'expand'"
       :is-active="isFullscreen"
     />
@@ -19,6 +20,12 @@ export default defineComponent({
 
   components: {
     CommandButton,
+  },
+  props: {
+    buttonIcon: {
+      default: '',
+      type: String
+    }
   },
   setup() {
     const t = inject('t');

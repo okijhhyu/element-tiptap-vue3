@@ -8,9 +8,10 @@
     placement="top"
     :enterable="false"
   >
-    <div :class="commandButtonClass" @mousedown.prevent @click="onClick">
-      <v-icon :name="icon" />
+    <div v-if="!buttonIcon" :class="commandButtonClass" @mousedown.prevent @click="onClick">
+      <v-icon :name="icon" :button-icon="buttonIcon" />
     </div>
+    <div v-else v-html="buttonIcon" :class="commandButtonClass" @mousedown.prevent @click="onClick" />
   </el-tooltip>
 </template>
 
@@ -55,13 +56,16 @@ export default defineComponent({
       type: Function,
       default: noop,
     },
-
+    buttonIcon: {
+      type: String,
+      required: false,
+      default: ''
+    },
     readonly: {
       type: Boolean,
       default: false,
     },
   },
-
   computed: {
     commandButtonClass(): object {
       return {

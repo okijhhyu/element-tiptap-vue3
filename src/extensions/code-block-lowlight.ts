@@ -1,28 +1,28 @@
-import type { Editor } from '@tiptap/core';
-import TiptapStrike from '@tiptap/extension-strike';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
+import type { Editor } from '@tiptap/core';
+import TiptapCodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
 
-const Strike = TiptapStrike.extend({
+export default TiptapCodeBlockLowlight.extend({
   addOptions() {
     return {
       ...this.parent?.(),
+      lowlight: {},
+      defaultLanguage: null,
       buttonIcon: '',
       button({ editor, extension, t }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: CommandButton,
           componentProps: {
             command: () => {
-              editor.commands.toggleStrike();
+              editor.commands.toggleCodeBlock();
             },
             buttonIcon: extension.options.buttonIcon,
-            isActive: editor.isActive('strike'),
-            icon: 'strikethrough',
-            tooltip: t('editor.extensions.Strike.tooltip'),
-          },
+            isActive: editor.isActive('codeBlock'),
+            icon: 'code',
+            tooltip: t('editor.extensions.CodeBlock.tooltip')
+          }
         };
-      },
+      }
     };
-  },
+  }
 });
-
-export default Strike;

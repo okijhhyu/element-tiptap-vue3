@@ -7,13 +7,15 @@ const Highlight = TiptapHighlight.extend({
   addOptions() {
     return {
       ...this.parent?.(),
+      buttonIcon: '',
       multicolor: true,
       colors: COLOR_SET,
-      button({ editor }: { editor: Editor;}) {
+      button({ editor, extension }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: HighlightPopover,
           componentProps: {
             editor,
+            buttonIcon: extension.options.buttonIcon,
           },
         };
       },

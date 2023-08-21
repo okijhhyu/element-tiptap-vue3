@@ -6,13 +6,15 @@ const Underline = TiptapUnderline.extend({
   addOptions() {
     return {
       ...this.parent?.(),
-      button({ editor, t }: { editor: Editor; t: (...args: any[]) => string }) {
+      buttonIcon: '',
+      button({ editor, extension, t }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: CommandButton,
           componentProps: {
             command: () => {
               editor.commands.toggleUnderline();
             },
+            buttonIcon: extension.options.buttonIcon,
             isActive: editor.isActive('underline'),
             icon: 'underline',
             tooltip: t('editor.extensions.Underline.tooltip'),

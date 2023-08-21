@@ -68,15 +68,25 @@ import {
   History,
   CodeView,
   Gapcursor,
-  Dropcursor
+  Dropcursor,
+  CodeBlockLowlight
 } from 'element-tiptap-vue3-fixed';
-
 import codemirror from 'codemirror';
 import 'codemirror/lib/codemirror.css'; // import base style
 import 'codemirror/mode/xml/xml.js'; // language
 import 'codemirror/addon/selection/active-line.js'; // require active-line.js
 import 'codemirror/addon/edit/closetag.js';
 // autoCloseTags
+import css from 'highlight.js/lib/languages/css';
+import js from 'highlight.js/lib/languages/javascript';
+import ts from 'highlight.js/lib/languages/typescript';
+import html from 'highlight.js/lib/languages/xml';
+// load all highlight.js languages
+import { lowlight } from 'lowlight';
+lowlight.registerLanguage('html', html);
+lowlight.registerLanguage('css', css);
+lowlight.registerLanguage('js', js);
+lowlight.registerLanguage('ts', ts);
 
 const textExtensions = [
   Doc,
@@ -156,8 +166,8 @@ const allExtensions = [
   LineHeight.configure({ bubble: true }),
   Indent.configure({ bubble: true }),
   Blockquote.configure({ bubble: true }),
-  CodeBlock.configure({ bubble: true }),
-  Link.configure({ bubble: true }),
+  CodeBlockLowlight.configure({ lowlight }),
+  Link.configure({ bubble: true, addLinkPlaceholder: 'add link', editLinkPlaceholder: 'edit link' }),
   Image.configure({
     bubble: true,
     defaultWidth: 400,
@@ -178,6 +188,83 @@ const allExtensions = [
     },
   }),
   Gapcursor,
+  CodeBlock,
   Dropcursor
 ];
 </script>
+<style lang="scss">
+/* Basic editor styles */
+.ProseMirror {
+  > * + * {
+    margin-top: 0.75em;
+  }
+
+  pre {
+    background: #0d0d0d;
+    border-radius: 0.5rem;
+    color: #fff;
+    font-family: "JetBrainsMono", monospace;
+    padding: 0.75rem 1rem;
+
+    code {
+      background: none;
+      color: inherit;
+      font-size: 0.8rem;
+      padding: 0;
+    }
+
+    .hljs-comment,
+    .hljs-quote {
+      color: #616161;
+    }
+
+    .hljs-variable,
+    .hljs-template-variable,
+    .hljs-attribute,
+    .hljs-tag,
+    .hljs-name,
+    .hljs-regexp,
+    .hljs-link,
+    .hljs-name,
+    .hljs-selector-id,
+    .hljs-selector-class {
+      color: #f98181;
+    }
+
+    .hljs-number,
+    .hljs-meta,
+    .hljs-built_in,
+    .hljs-builtin-name,
+    .hljs-literal,
+    .hljs-type,
+    .hljs-params {
+      color: #fbbc88;
+    }
+
+    .hljs-string,
+    .hljs-symbol,
+    .hljs-bullet {
+      color: #b9f18d;
+    }
+
+    .hljs-title,
+    .hljs-section {
+      color: #faf594;
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag {
+      color: #70cff8;
+    }
+
+    .hljs-emphasis {
+      font-style: italic;
+    }
+
+    .hljs-strong {
+      font-weight: 700;
+    }
+  }
+}
+
+</style>

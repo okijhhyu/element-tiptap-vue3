@@ -6,6 +6,7 @@
         :tooltip="t('editor.extensions.FontType.tooltip')"
         :readonly="isCodeViewMode"
         icon="font-family"
+        :button-icon="buttonIcon"
       />
     </div>
     <template #dropdown>
@@ -48,6 +49,10 @@ export default defineComponent({
       type: Editor,
       required: true,
     },
+    buttonIcon: {
+      default: '',
+      type: String
+    }
   },
 
   setup() {

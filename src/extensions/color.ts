@@ -9,12 +9,14 @@ const Color = TiptapColor.extend({
   addOptions() {
     return {
       ...this.parent?.(),
+      buttonIcon: '',
       colors: COLOR_SET,
-      button({ editor }: { editor: Editor; }) {
+      button({ editor, extension }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: ColorPopover,
           componentProps: {
             editor,
+            buttonIcon: extension.options.buttonIcon,
           },
         };
       },

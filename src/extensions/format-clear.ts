@@ -51,13 +51,15 @@ const FormatClear = Extension.create({
   addOptions() {
     return {
       ...this.parent?.(),
-      button({ editor, t }: { editor: Editor; t: (...args: any[]) => string }) {
+      buttonIcon: '',
+      button({ editor, extension, t }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: CommandButton,
           componentProps: {
             command: () => {
               editor.commands.formatClear();
             },
+            buttonIcon: extension.options.buttonIcon,
             icon: 'clear-format',
             tooltip: t('editor.extensions.FormatClear.tooltip'),
           },

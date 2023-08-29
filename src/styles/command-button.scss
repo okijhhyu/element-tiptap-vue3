@@ -286,3 +286,16 @@
     flex-direction: row;
   }
 }
+.command-list {
+  display: flex;
+  gap: 5px;
+  position: relative;
+  flex-wrap: wrap;
+  max-width: 300px;
+}
+.command-list::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+

@@ -8,6 +8,36 @@ const Heading = TiptapHeading.extend({
     return {
       ...this.parent?.(),
       buttonIcon: '',
+      commandList: this.parent?.()?.levels.concat([0] as any).map(level => {
+        return {
+          title: level > 0 ? `h ${level}` : 'paragraph',
+          command: ({ editor, range }:any) => {
+            if (level > 0) {
+              editor
+                .chain()
+                .focus()
+                .deleteRange(range)
+                .toggleHeading({ level })
+                .run();
+            } else {
+              editor
+                .chain()
+                .focus()
+                .deleteRange(range)
+                .setParagraph()
+                .run();
+            }
+          },
+          disabled: false,
+          isActive(editor:Editor) {
+            return level > 0
+              ? editor.isActive('heading', {
+                level,
+              })
+              : editor.isActive('paragraph');
+          }
+        };
+      }),
       button({
         editor,
         extension,

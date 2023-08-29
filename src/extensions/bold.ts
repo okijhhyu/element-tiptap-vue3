@@ -7,6 +7,20 @@ const Bold = TiptapBold.extend({
     return {
       ...this.parent?.(),
       buttonIcon: '',
+      commandList:
+        [{
+          title: 'bold',
+          command: ({ editor, range }:any) => {
+            editor
+              .chain()
+              .focus()
+              .deleteRange(range)
+              .toggleBold()
+              .run();
+          },
+          disabled: false,
+          isActive(editor:Editor) { return editor.isActive('bold'); }
+        }],
       button({ editor, extension, t }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: CommandButton,

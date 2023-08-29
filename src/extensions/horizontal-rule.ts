@@ -7,6 +7,21 @@ const HorizontalRule = TiptapHorizontalRule.extend({
     return {
       ...this.parent?.(),
       buttonIcon: '',
+      commandList:
+      [{
+        title: 'horizontalRule',
+        command: ({ editor, range }:any) => {
+          editor
+            .chain()
+            .focus()
+            .deleteRange(range)
+            .setHorizontalRule()
+            .run();
+        },
+        disabled: false,
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        isActive(editor:Editor) { return false; }
+      }],
       button({ editor, extension, t }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: CommandButton,

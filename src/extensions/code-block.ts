@@ -7,6 +7,24 @@ const CodeBlock = TiptapCodeBlock.extend({
     return {
       ...this.parent?.(),
       buttonIcon: '',
+      commandList:
+        [{
+          title: 'codeBlock',
+          command: ({ editor, range }:any) => {
+            editor
+              .chain()
+              .focus()
+              .deleteRange(range)
+              .run();
+            editor
+              .chain()
+              .focus()
+              .toggleCodeBlock()
+              .run();
+          },
+          disabled: false,
+          isActive(editor:Editor) { return editor.isActive('codeBlock'); }
+        }],
       button({ editor, extension, t }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: CommandButton,

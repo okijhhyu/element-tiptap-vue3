@@ -34,7 +34,7 @@
         project, thanks! 🙏
       </div>
       <iframe
-        src="https://ghbtns.com/github-btn.html?user=Leecason&repo=element-tiptap&type=star&count=true"
+        src="https://ghbtns.com/github-btn.html?user=Okijhhyu&repo=element-tiptap-vue3&type=star&count=true"
         frameborder="0"
         scrolling="0"
         width="170px"

@@ -6,6 +6,7 @@ import {
   ElMain,
   ElFooter,
   ElButton,
+  ElTag
 } from 'element-plus';
 
 import ElementTiptap from 'element-tiptap-vue3-fixed';
@@ -21,6 +22,7 @@ app.use(ElHeader);
 app.use(ElMain);
 app.use(ElFooter);
 app.use(ElButton);
+app.use(ElTag);
 
 app.use(ElementTiptap);
 

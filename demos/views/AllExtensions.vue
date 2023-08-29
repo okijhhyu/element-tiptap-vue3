@@ -68,8 +68,11 @@ import {
   History,
   CodeView,
   Gapcursor,
+  Commands,
   Dropcursor,
-  CodeBlockLowlight
+  CodeBlockLowlight,
+  getSuggestionItems,
+  renderItems
 } from 'element-tiptap-vue3-fixed';
 import codemirror from 'codemirror';
 import 'codemirror/lib/codemirror.css'; // import base style
@@ -168,6 +171,12 @@ const allExtensions = [
   Blockquote.configure({ bubble: true }),
   CodeBlockLowlight.configure({ lowlight }),
   Link.configure({ bubble: true, addLinkPlaceholder: 'add link', editLinkPlaceholder: 'edit link' }),
+  Commands.configure({
+    suggestion: {
+      items: getSuggestionItems,
+      render: renderItems
+    }
+  }),
   Image.configure({
     bubble: true,
     defaultWidth: 400,

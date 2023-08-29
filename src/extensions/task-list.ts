@@ -8,6 +8,24 @@ const TaskList = TiptapTaskList.extend({
     return {
       buttonIcon: '',
       ...this.parent?.(),
+      commandList:
+        [{
+          title: 'taskList',
+          command: ({ editor, range }:any) => {
+            editor
+              .chain()
+              .focus()
+              .deleteRange(range)
+              .run();
+            editor
+              .chain()
+              .focus()
+              .toggleTaskList()
+              .run();
+          },
+          disabled: false,
+          isActive(editor:Editor) { return editor.isActive('taskList'); }
+        }],
       button({ editor, extension, t }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: CommandButton,

@@ -174,10 +174,31 @@ All available extensions:
 - [`CodeBlockLowlight`](https://tiptap.dev/api/nodes/code-block-lowlight)
 - [`Gapcursor`](https://tiptap.dev/api/extensions/gapcursor/)
 - [`Dropcursor`](https://tiptap.dev/api/extensions/gapcursor/)
+- [`Commands`](https://tiptap.dev/api/utilities/suggestion)
 
 You can find all extensions docs [here](https://github.com/Leecason/element-tiptap/issues/107).
 
 ### Addendum to the link above
+Extension: `Commands`
+
+Usage
+
+```Vue
+import {
+  ...
+  Commands,
+  getSuggestionItems,
+  renderItems
+} from 'element-tiptap-vue3-fixed';
+
+  Commands.configure({
+    suggestion: {
+      items: getSuggestionItems,
+      render: renderItems
+    }
+  }),
+```
+
 Extension: `All`
 
 Custom svg for extensions
@@ -269,7 +290,7 @@ export default CodeBlockLowlight.extend({
 ```
 
 ```vue
-this.$refs.setContent(Content); 
+this.$refs.editor.setContent(Content); 
 can do reactive, but history brokes so add this function, to change content if necessary.
 ```
 ### placeholder

@@ -7,8 +7,26 @@ const OrderedList = TiptapOrderedList.extend({
   nessesaryExtensions: [ListItem],
   addOptions() {
     return {
-      buttonIcon: '',
       ...this.parent?.(),
+      buttonIcon: '',
+      commandList:
+        [{
+          title: 'orderedList',
+          command: ({ editor, range }:any) => {
+            editor
+              .chain()
+              .focus()
+              .deleteRange(range)
+              .run();
+            editor
+              .chain()
+              .focus()
+              .toggleOrderedList()
+              .run();
+          },
+          disabled: false,
+          isActive(editor:Editor) { return editor.isActive('orderedList'); }
+        }],
       button({ editor, extension, t }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: CommandButton,

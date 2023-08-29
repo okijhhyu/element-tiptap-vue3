@@ -27,6 +27,6 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
-  ],
+, "src/extensions/print.ts"  ],
   "exclude": ["node_modules"]
 }

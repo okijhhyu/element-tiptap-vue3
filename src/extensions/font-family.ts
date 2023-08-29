@@ -1,4 +1,5 @@
 import { Editor, Extension } from '@tiptap/core';
+import { getMarkAttributes } from '@tiptap/vue-3';
 import { DEFAULT_FONT_FAMILY_MAP } from '@/utils/font-type';
 import FontFamilyDropdown from '@/components/MenuCommands/FontFamilyDropdown.vue';
 import TextStyle from '@tiptap/extension-text-style';
@@ -30,6 +31,30 @@ const FontFamily = Extension.create<FontFamilyOptions>({
       types: ['textStyle'],
       fontFamilyMap: DEFAULT_FONT_FAMILY_MAP,
       buttonIcon: '',
+      commandList: Object.keys(DEFAULT_FONT_FAMILY_MAP).map(key => {
+        return {
+          title: `fontFamily ${key}`,
+          command: ({ editor, range }:any) => {
+            if (key === getMarkAttributes(editor.state, 'textStyle').fontFamily || '') {
+              editor
+                .chain()
+                .focus()
+                .deleteRange(range)
+                .unsetFontFamily()
+                .run();
+            } else {
+              editor
+                .chain()
+                .focus()
+                .deleteRange(range)
+                .setFontFamily(key)
+                .run();
+            }
+          },
+          disabled: false,
+          isActive(editor:Editor) { return key === getMarkAttributes(editor.state, 'textStyle').fontFamily || ''; }
+        };
+      }),
       button({ editor, extension }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: FontFamilyDropdown,
@@ -85,6 +110,8 @@ const FontFamily = Extension.create<FontFamilyOptions>({
     };
   },
   nessesaryExtensions: [TextStyle],
+}).extend({
+
 });
 
 export default FontFamily;

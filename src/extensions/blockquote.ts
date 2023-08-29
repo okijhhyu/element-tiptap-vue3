@@ -9,6 +9,20 @@ const Blockquote = TiptapBlockquote.extend<BlockquoteOptions>({
     return {
       ...this.parent?.(),
       buttonIcon: '',
+      commandList:
+        [{
+          title: 'blockquote',
+          command: ({ editor, range }:any) => {
+            editor
+              .chain()
+              .focus()
+              .deleteRange(range)
+              .toggleBlockquote()
+              .run();
+          },
+          disabled: false,
+          isActive(editor:Editor) { return editor.isActive('blockquote'); }
+        }],
       button({ editor, extension, t }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: CommandButton,

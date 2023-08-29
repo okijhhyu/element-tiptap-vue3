@@ -1,4 +1,5 @@
 import { Editor, Extension } from '@tiptap/core';
+import { getMarkAttributes } from '@tiptap/vue-3';
 import {
   DEFAULT_FONT_SIZES,
   convertToPX,
@@ -34,6 +35,30 @@ const FontSize = Extension.create<FontSizeOptions>({
       types: ['textStyle'],
       fontSizes: DEFAULT_FONT_SIZES,
       buttonIcon: '',
+      commandList: DEFAULT_FONT_SIZES.map(key => {
+        return {
+          title: `fontSize ${key}`,
+          command: ({ editor, range }:any) => {
+            if (key === getMarkAttributes(editor.state, 'textStyle').fontSize || '') {
+              editor
+                .chain()
+                .focus()
+                .deleteRange(range)
+                .unsetFontSize()
+                .run();
+            } else {
+              editor
+                .chain()
+                .focus()
+                .deleteRange(range)
+                .setFontSize(key)
+                .run();
+            }
+          },
+          disabled: false,
+          isActive(editor:Editor) { return key === getMarkAttributes(editor.state, 'textStyle').fontSize || ''; }
+        };
+      }),
       button({ editor, extension }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: FontSizeDropdown,

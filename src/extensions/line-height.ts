@@ -4,6 +4,7 @@ import {
   createLineHeightCommand,
   transformCSStoLineHeight,
   transformLineHeightToCSS,
+  isLineHeightActive
 } from '@/utils/line-height';
 import LineHeightDropdown from '@/components/MenuCommands/LineHeightDropdown.vue';
 
@@ -29,6 +30,30 @@ const LineHeight = Extension.create<LineHeightOptions>({
       buttonIcon: '',
       types: ['paragraph', 'heading', 'list_item', 'todo_item'],
       lineHeights: ['100%', '115%', '150%', '200%', '250%', '300%'],
+      commandList: ['100%', '115%', '150%', '200%', '250%', '300%'].map(key => {
+        return {
+          title: `lineHeight ${key}`,
+          command: ({ editor, range }:any) => {
+            if (isLineHeightActive(editor.state, key) || '') {
+              editor
+                .chain()
+                .focus()
+                .deleteRange(range)
+                .unsetLineHeight()
+                .run();
+            } else {
+              editor
+                .chain()
+                .focus()
+                .deleteRange(range)
+                .setLineHeight(key)
+                .run();
+            }
+          },
+          disabled: false,
+          isActive(editor:Editor) { return isLineHeightActive(editor.state, key) || ''; }
+        };
+      }),
       button({ editor, extension }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
         return {
           component: LineHeightDropdown,

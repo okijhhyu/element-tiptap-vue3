@@ -179,6 +179,7 @@ All available extensions:
 You can find all extensions docs [here](https://github.com/Leecason/element-tiptap/issues/107).
 
 ### Addendum to the link above
+
 Extension: `Commands`
 
 Usage
@@ -191,12 +192,12 @@ import {
   renderItems
 } from 'element-tiptap-vue3-fixed';
 
-  Commands.configure({
-    suggestion: {
-      items: getSuggestionItems,
-      render: renderItems
-    }
-  }),
+Commands.configure({
+  suggestion: {
+    items: getSuggestionItems,
+    render: renderItems
+  }
+}),
 ```
 
 Extension: `All`

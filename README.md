@@ -366,6 +366,18 @@ Default: `false`
 
 Whether the content is spellcheck enabled.
 
+### editorProps
+
+Type: `Object`
+
+Default: `{}`
+
+```html
+<el-tiptap :editorProps="{handlePaste: ...}"> </el-tiptap>
+```
+
+about [editorProps](https://prosemirror.net/docs/ref/#view.EditorProps)
+
 ### width, height
 
 Type: `string | number`

@@ -60,10 +60,10 @@ import {
   provide,
   ref,
   unref,
-  watchEffect,
-  watch
+  watchEffect
 } from 'vue';
 import { Editor, Extensions } from '@tiptap/core';
+import { EditorProps } from '@tiptap/pm/view';
 import { useEditor, EditorContent } from '@tiptap/vue-3';
 import TiptapPlaceholder from '@tiptap/extension-placeholder';
 import CharacterCount from '@tiptap/extension-character-count';
@@ -79,6 +79,7 @@ interface Props {
   lang?: string;
   width?: string | number;
   height?: string | number;
+  editorProps?: EditorProps
   output: 'html' | 'json';
   readonly?: boolean;
   tooltip?: boolean;
@@ -109,7 +110,7 @@ export default defineComponent({
     },
     extensions: {
       type: Array as () => Extensions,
-      default: [],
+      default: () => [],
     },
     placeholder: {
       type: String,
@@ -149,6 +150,10 @@ export default defineComponent({
     enableCharCount: {
       type: Boolean,
       default: true,
+    },
+    editorProps: {
+      type: Object as () => EditorProps,
+      default: () => {}
     },
     charCountMax: {
       type: Number,
@@ -260,6 +265,7 @@ export default defineComponent({
           attributes: {
             spellcheck: String(props.spellcheck),
           },
+          ...props.editorProps
         },
         editable: !props.readonly,
       });

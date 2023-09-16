@@ -20,7 +20,7 @@
   "types": "./lib/index.d.ts",
   "dependencies": {
     "@juggle/resize-observer": "^3.1.2",
-    "@tiptap/core": "^2.0.3",
+    "@tiptap/core": "^2.1.7",
     "@tiptap/extension-blockquote": "^2.1.0",
     "@tiptap/extension-bold": "^2.0.3",
     "@tiptap/extension-bubble-menu": "^2.1.0",

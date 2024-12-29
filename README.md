@@ -417,12 +417,11 @@ Specifies the editor i18n language.
 
 ```js
 <template>
-  <el-tiptap :lang="en"></el-tiptap>
+  <el-tiptap lang="en"></el-tiptap>
 </template>
 
 <script setup>
 import { ElementTiptap } from 'element-tiptap-vue3-fixed';
-import en from 'element-tiptap-vue3-fixed/lib/locales/en';
 </script>
 ```
 

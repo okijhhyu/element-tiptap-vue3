@@ -440,6 +440,7 @@ Available languages:
 - `pt_br` by @valterleonardo
 - `nl` by @Arne-Jan
 - `he` by @shovalPMS
+- `fa` by [@mahdi-toosi](https://github.com/mahdi-toosi)
 
 Welcome contribution.
 

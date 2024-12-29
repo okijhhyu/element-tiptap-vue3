@@ -12,6 +12,7 @@ import fr from './locales/fr';
 import pt_br from './locales/pt-br';
 import nl from './locales/nl';
 import he from './locales/he';
+import fa from './locales/fa';
 
 export const DEFAULT_LANGUAGE = 'en';
 const dictionary = {
@@ -27,6 +28,7 @@ const dictionary = {
   pt_br,
   nl,
   he,
+  fa,
 };
 
 export const Trans = {
